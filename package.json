@@ -1,0 +1,28 @@
+{
+  "author": "mshatikhin",
+  "dependencies": {
+    "webpack": "~1.12.2"
+  },
+  "description": "mscomp-packeges",
+  "devDependencies": {
+    "history": "^1.16.0",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "react-router": "^1.0.0-rc4",
+    "webpack-dev-server": "~1.12.1"
+  },
+  "main": "app.js",
+  "name": "mscomp",
+  "private": true,
+  "readme": "hey",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/mshatikhin/mscomp.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build",
+    "deploy": "webpack -p --config webpack.production.config.js"
+  },
+  "version": "1.0.0"
+}
