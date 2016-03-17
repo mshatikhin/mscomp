@@ -1,13 +1,7 @@
-var nodeEnv = process.env.NODE_ENV != null ? process.env.NODE_ENV.toString().trim() : "development";
+var nodeEnv = process.env.NODE_ENV != null ? process.env.NODE_ENV.toString().trim() : "production";
 var buildPath = "/AppBuild/app/";
-var httpUrl = "http://localhost:55443";
-var devUrl = "http://localhost:4400";
-var publicPath = "/";
-
-
-console.log("*****************************");
-console.log(`Build mode: ${nodeEnv}`);
-console.log("*****************************");
+var httpUrl = "http://orvis-1.kontur:4443";
+var publicPath = "/app";
 
 var webpack = require("webpack");
 var path = require("path");
@@ -23,7 +17,7 @@ var plugins = [
     new Clean(["AppBuild/app"]),
     new webpack.DefinePlugin({
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        PRODUCTION: JSON.stringify(false),
+        PRODUCTION: JSON.stringify(true),
         API_URL: JSON.stringify(httpUrl)
     }),
     new webpack.ProvidePlugin({
@@ -31,41 +25,37 @@ var plugins = [
         "jquery": "jquery"
     }),
     new webpack.optimize.DedupePlugin(),
-    new ExtractTextPlugin("assets/[name].css", {
+    new ExtractTextPlugin("assets/[name].[contenthash].css", {
         allChunks: true
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+        compressor: {
+            warnings: false
+        }
     }),
     new HtmlWebpackPlugin({
         title: "",
-        filename: "../../index.html",
-        template: "src/static/DevIndexTemplate.html",
+        filename: "../index.html",
+        template: "src/static/TemplateIndex.html",
         inject: "body"
-    }),
-    new webpack.HotModuleReplacementPlugin()
+    })
 ];
 
-var entry = ["./app/AppStart.tsx", "webpack/hot/only-dev-server", "webpack-dev-server/client?" + devUrl];
-
-var devServer = {
-    host: "localhost",
-    port: 52667,
-    hot: true,
-    historyApiFallback: true,
-    headers: { 'Access-Control-Allow-Origin': "*" }
-};
+var entry = ["./app/AppStart.tsx"];
 
 var loaders = [
     {
         test: /\.(jsx?|tsx?)$/,
-        loader: "react-hot!babel?presets[]=react,presets[]=es2015!ts",
+        loader: "babel?presets[]=react,presets[]=es2015!ts",
         include: path.resolve(__dirname, "src")
     },
     {
         test: /\.css$/,
-        loader: "style!css?modules&importLoaders=1&localIdentName=[name]__[local]!postcss-loader"
+        loader: ExtractTextPlugin.extract("css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader")
     },
     {
         test: /\.(less)$/,
-        loader: "style!css?modules&importLoaders=1&localIdentName=[name]__[local]!postcss-loader!less"
+        loader: ExtractTextPlugin.extract("css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!less")
     },
     {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
@@ -80,13 +70,12 @@ var loaders = [
 var config = {
     context: path.join(__dirname, "src"),
     entry: entry,
-    devServer: devServer,
-    devtool: "eval",
+    devtool: "cheap-eval-source-map",
     output: {
         publicPath: publicPath,
         path: path.join(__dirname, buildPath),
-        filename: "assets/[name].js",
-        chunkFileName: "assets/[id].js"
+        filename: "assets/[name].[hash].js",
+        chunkFileName: "assets/[id].[hash].js"
     },
     watchOptions: {
         aggregateTimeout: 200

@@ -1,7 +1,6 @@
 /**
  * Created by mike on 13.12.15.
  */
-/* @flow */
 
 class Button extends React.Component {
     constructor(props){
