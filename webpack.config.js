@@ -1,7 +1,7 @@
 var nodeEnv = process.env.NODE_ENV != null ? process.env.NODE_ENV.toString().trim() : "development";
 var buildPath = "/AppBuild/app/";
 var httpUrl = "http://localhost:55443";
-var devUrl = "http://localhost:4400";
+var devUrl = "http://localhost:8080";
 var publicPath = "/";
 
 
@@ -47,7 +47,7 @@ var entry = ["./app/AppStart.tsx", "webpack/hot/only-dev-server", "webpack-dev-s
 
 var devServer = {
     host: "localhost",
-    port: 52667,
+    port: 8080,
     hot: true,
     historyApiFallback: true,
     headers: { 'Access-Control-Allow-Origin': "*" }

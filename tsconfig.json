@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "sourceMap": false,
+        "jsx": "react",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "target": "es6",
+        "module": "commonjs"
+    },
+    "buildOnSave": false,
+    "compileOnSave": false,
+    "exclude": [
+        "node_modules",
+        "typings/es6.d.ts"
+    ],
+    "atom": {
+        "rewriteTsconfig": false,
+        "formatOnSave": true
+    }
+}
+
