@@ -7,12 +7,6 @@
     width: auto;
     height: 600px;
     transform: translate(-50%,-50%);
-    box-shadow: 0 1px 3px -1px #000;
-    font-size: 22px;
-    background: #666;
-    text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px #666;
 }
 
 .mainImage{

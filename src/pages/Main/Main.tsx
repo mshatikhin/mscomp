@@ -1,5 +1,5 @@
 ﻿const styles: any = require("./Main.css");
-const $: any = require("jquery");
+import {Paper} from 'material-ui';
 
 interface IMainState {
     url: string;
@@ -77,9 +77,11 @@ class Main extends React.Component<any, IMainState> {
     render() {
         return (
             <div className={styles.main}>
-                <a href="https://www.flickr.com/photos/124274905@N03/" target="blank">
-                    <img className={styles.mainImage} src={this.state.url} height="600"/>
-                </a>
+                <Paper zDepth={1}>
+                    <a href="https://www.flickr.com/photos/124274905@N03/" target="blank">
+                        <img className={styles.mainImage} src={this.state.url} height="600"/>
+                    </a>
+                </Paper>
             </div>
         );
     }
