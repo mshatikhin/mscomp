@@ -4,12 +4,13 @@
     top: 200px;
     left: 50%;
     padding: 20px;
-    width: 400px;
-    height: 200px;
-    margin-left: -200px;
+    width: 800px;
+    height: 480px;
+    margin-left: -400px;
     box-shadow: 0 1px 3px -1px #000;
     font-size: 22px;
-    background: #ddd;
+    background: #666;
     text-align: center;
-    color: #222;
+    color: #fff;
+    text-shadow: 1px 1px #666;
 }
