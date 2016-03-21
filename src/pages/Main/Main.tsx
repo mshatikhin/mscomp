@@ -2,19 +2,35 @@
 const $: any = require("jquery");
 
 interface IMainState {
+    url: string;
 }
-
+var interval: any = null;
 class Main extends React.Component<any, IMainState> {
     constructor(props: any) {
         super(props);
-        this.state = {}
+        this.state = {
+            url: ""
+        }
+    }
+
+    setPicture = (url: string)=> {
+        this.setState({
+            url: url
+        })
     }
 
     componentDidMount() {
-        this.getPicture("87182509@N05");
+        this.getPicture("124274905@N03");
+        interval = setInterval(()=> {
+            this.getPicture("124274905@N03");
+        }, 10000);
     }
 
-    getPicture(the_user_id: string) {
+    componentWillUnmount() {
+        clearInterval(interval);
+    }
+
+    getPicture = (the_user_id: string)=> {
         var apiKey = "1173960c94df6700f0b57dccc50f0925"; // replace this with your API key
 
         var url_to_a_photo_head = "https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=" + apiKey + "&photo_id=";
@@ -27,7 +43,7 @@ class Main extends React.Component<any, IMainState> {
             format: 'json',
             nojsoncallback: 1,
             per_page: 10 // you can increase this to get a bigger array
-        }, function (data: any) {
+        }, (data: any)=> {
             // if everything went good
             if (data.stat == 'ok') {
                 // get a random id from the array
@@ -41,10 +57,10 @@ class Main extends React.Component<any, IMainState> {
                     format: 'json',
                     nojsoncallback: 1
                 };
-                $.getJSON("https://api.flickr.com/services/rest/", options2, function (response: any) {
+                $.getJSON("https://api.flickr.com/services/rest/", options2, (response: any)=> {
                         if (response.stat == 'ok') {
                             var the_url = response.sizes.size[8].source;
-                            $("."+styles.main).css({background: 'url(' + the_url + ') no-repeat 50% 50%', backgroundSize: 'cover;'});
+                            this.setPicture(the_url);
                         }
                         else {
                             console.log(" The request to get the picture was not good :\ ")
@@ -61,6 +77,9 @@ class Main extends React.Component<any, IMainState> {
     render() {
         return (
             <div className={styles.main}>
+                <a href="https://www.flickr.com/photos/124274905@N03/" target="blank">
+                    <img className={styles.mainImage} src={this.state.url} height="600"/>
+                </a>
             </div>
         );
     }
