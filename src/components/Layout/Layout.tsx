@@ -1,4 +1,6 @@
-﻿interface ILayoutProps extends React.Props<any> {
+﻿import Header from "../Header/Header";
+
+interface ILayoutProps extends React.Props<any> {
 
 }
 
@@ -18,6 +20,7 @@ class Layout extends React.Component<ILayoutProps, ILayoutState> {
     render() {
         return (
             <div>
+                <Header/>
                 {this.props.children}
             </div>
         );

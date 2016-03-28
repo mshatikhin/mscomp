@@ -1,0 +1,18 @@
+.wrap {
+    display: block;
+    padding-top: 20px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.link {
+    font-size: 14px;
+    color: #666;
+    margin-right: 20px;
+    transition: .2s color ease-out;
+}
+
+.activeLink {
+    color: #aaa;
+}

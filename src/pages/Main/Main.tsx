@@ -83,13 +83,14 @@ class Main extends React.Component<any, IMainState> {
     render() {
         return (
             <div className={styles.main}>
-                <Paper zDepth={1}>
+                {this.state.url !== "" && <Paper zDepth={1}>
                     <a href="https://www.flickr.com/photos/124274905@N03/"
                        target="blank">
-                        <img className={styles.mainImage} src={this.state.url}
+                        <img className={styles.mainImage}
+                             src={this.state.url}
                              height="600"/>
                     </a>
-                </Paper>
+                </Paper>}
             </div>
         );
     }

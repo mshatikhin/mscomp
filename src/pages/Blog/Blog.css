@@ -1,0 +1,7 @@
+.main {
+    display: block;
+    width: 960px;
+    max-width: 100%;
+    min-width: 400px;
+    margin: 100px auto;
+}
