@@ -18,7 +18,6 @@ class Layout extends React.Component<IProps, IState> {
         return (
             <div className={styles.header}>
                 <header className={styles.title}>БЛОГ МИХАИЛА ШАТИХИНА</header>
-                <Menu/>
             </div>
         );
     }

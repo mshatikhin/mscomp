@@ -17,7 +17,6 @@ class Menu extends React.Component<IProps, IState> {
     render() {
         return (
             <nav className={styles.wrap}>
-                <Link className={styles.link} activeClassName={styles.activeLink} to="main">главная</Link>
                 <Link className={styles.link} activeClassName={styles.activeLink} to="blog">блог</Link>
             </nav>
         );

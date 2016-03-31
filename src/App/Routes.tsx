@@ -6,7 +6,7 @@ import NotFound from "../components/NotFound/NotFound";
 
 export default (
     <Route path="/" component={ Layout }>
-        <IndexRedirect to="main"/>
+        <IndexRedirect to="blog"/>
         <Route path="main" component={ Main }/>
         <Route path="blog" component={ Blog }/>
         <Route path="*" component={ NotFound }/>

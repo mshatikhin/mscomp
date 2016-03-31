@@ -20,15 +20,14 @@ class Blog extends React.Component<any, IMainState> {
     }
 
     componentWillMount() {
-        this.getBlog();
+        this.getBlog("mshatikhin.wordpress.com");
     }
 
     createMarkup(content: string) {
         return {__html: content};
     };
 
-    getBlog = ()=> {
-        var $site = "mshatikhin.wordpress.com";
+    getBlog = ($site: string)=> {
         $.getJSON("https://public-api.wordpress.com/rest/v1.1/sites/" + $site + "/posts/", (data: any)=> {
             console.log(data);
             this.setState({
@@ -39,7 +38,8 @@ class Blog extends React.Component<any, IMainState> {
 
     render() {
         const style: React.CSSProperties = {
-            padding: 30
+            padding: 30,
+            marginBottom: 50
         };
         return (
             <div className={styles.main}>
