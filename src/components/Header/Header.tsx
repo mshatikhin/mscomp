@@ -1,5 +1,5 @@
 const styles: any = require("./Header.css");
-import Menu from "../Menu/Menu";
+const image: any = require("./images/logo.png");
 
 interface IProps extends React.Props<any> {
 
@@ -17,6 +17,11 @@ class Layout extends React.Component<IProps, IState> {
     render() {
         return (
             <div className={styles.header}>
+                <a href="/" className={styles.logoLink}>
+                    <div className={styles.logoWrapper}>
+                        <img src={image} className={styles.logo} />
+                    </div>
+                </a>
                 <header className={styles.title}>БЛОГ МИХАИЛА ШАТИХИНА</header>
             </div>
         );
