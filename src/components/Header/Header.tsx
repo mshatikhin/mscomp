@@ -18,9 +18,7 @@ class Layout extends React.Component<IProps, IState> {
         return (
             <div className={styles.header}>
                 <a href="/" className={styles.logoLink}>
-                    <div className={styles.logoWrapper}>
-                        <img src={image} className={styles.logo} />
-                    </div>
+                    <img src={image} className={styles.logo} />
                 </a>
                 <header className={styles.title}>БЛОГ МИХАИЛА ШАТИХИНА</header>
             </div>

@@ -16,14 +16,7 @@
 }
 
 .logoLink {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.logoWrapper {
-    display: block;
-    margin: 0 auto;
+    display: inline-block;
     text-align: center;
 }
 
