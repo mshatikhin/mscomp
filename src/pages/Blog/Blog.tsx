@@ -1,5 +1,6 @@
 ﻿const styles: any = require("./Blog.css");
 import { Paper } from "material-ui";
+import WPClient from "../../components/Api/WPClient";
 
 interface IPost {
     title: string;
@@ -20,20 +21,16 @@ class Blog extends React.Component<any, IMainState> {
     }
 
     componentWillMount() {
-        this.getBlog("mshatikhin.wordpress.com");
-    }
-
-    createMarkup(content: string) {
-        return {__html: content};
-    };
-
-    getBlog = ($site: string)=> {
-        $.getJSON("https://public-api.wordpress.com/rest/v1.1/sites/" + $site + "/posts/", (data: any)=> {
-            console.log(data);
+        const wpClient = new WPClient();
+        wpClient.getBlog("mshatikhin.wordpress.com", (data)=> {
             this.setState({
                 posts: data.posts
             })
         });
+    }
+
+    createMarkup(content: string) {
+        return {__html: content};
     };
 
     render() {
