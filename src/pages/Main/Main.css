@@ -1,15 +1,16 @@
 .main {
-    position: absolute;
     display: block;
-    top: 50%;
-    left: 50%;
-    padding: 0;
-    width: auto;
-    height: 600px;
-    transform: translate(-50%,-50%);
+    width: 500px;
+    max-width: 100%;
+    margin: 30px auto;
 }
 
-.mainImage{
+.mainImage {
     display: block;
     max-height: 600px;
+}
+
+.album {
+    display: inline-block;
+    margin: 20px;
 }
