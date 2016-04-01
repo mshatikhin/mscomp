@@ -60,16 +60,22 @@ declare module "react-tabs" {
     var ReactTabs: IReactBaseTabsClass;
 
     export {
-    Tab,
-    Tabs,
-    TabList,
-    TabPanel
+        Tab,
+        Tabs,
+        TabList,
+        TabPanel
     }
     export default ReactTabs;
 }
 
 declare module "react-custom-scrollbars" {
     var Scrollbars: any;
+}
+
+
+declare module "react-document-meta" {
+    var DocumentMeta: any;
+    export default DocumentMeta;
 }
 
 declare var require: {
