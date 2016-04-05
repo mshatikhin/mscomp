@@ -14,8 +14,7 @@ class FlickrClient {
                 photoset_id: photosetId,
                 user_id: userId,
                 format: 'json',
-                nojsoncallback: 1,
-                per_page: 10
+                nojsoncallback: 1
             }, (response: any)=> {
                 if (response.stat === "ok") {
                     const photos = response.photoset.photo.map((photo: types.IFlickrPhoto)=> {
@@ -34,8 +33,7 @@ class FlickrClient {
                 user_id: userId,
                 primary_photo_extras: "url_m",
                 format: 'json',
-                nojsoncallback: 1,
-                per_page: 10
+                nojsoncallback: 1
             }, (response: types.IFlickrResponse)=> {
                 if (response.stat === "ok") {
                     cb(response.photosets.photoset)

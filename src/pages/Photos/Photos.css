@@ -1,0 +1,50 @@
+.main {
+    display: block;
+    width: 500px;
+    max-width: 100%;
+    margin: 30px auto;
+}
+
+.mainImage {
+    display: block;
+    max-height: 600px;
+}
+
+.album {
+    display: inline-block;
+    margin: 20px;
+}
+
+.back {
+    display: inline-block;
+    padding: 5px 0;
+    font-size: 12px;
+    color: #666;
+    transition: .2s ease-in-out all;
+}
+
+.back:hover {
+    color: #222;
+}
+
+.backWrap {
+    position: relative;
+}
+
+.lineArrow {
+    position: absolute;
+    overflow: hidden;
+    display: inline-block;
+    font-size: 12px; /*set the size for arrow*/
+    width: 4em;
+    height: 4em;
+    margin-top: -2em;
+    top: 50%;
+}
+
+.lineArrow.left {
+    border-top: 1px solid #a9a9a9;
+    border-left: 1px solid #a9a9a9;
+    transform: rotate(-54deg) skew(-20deg);
+    left: 20px;
+}

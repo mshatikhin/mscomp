@@ -70,7 +70,7 @@ var loaders = [
 var config = {
     context: path.join(__dirname, "src"),
     entry: entry,
-    devtool: "cheap-eval-source-map",
+    devtool: null,
     output: {
         publicPath: publicPath,
         path: path.join(__dirname, buildPath),

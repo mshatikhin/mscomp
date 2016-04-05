@@ -1,0 +1,57 @@
+.main {
+    display: block;
+    width: 500px;
+    max-width: 100%;
+    margin: 30px auto;
+}
+
+.mainImage {
+    display: block;
+    max-height: 600px;
+}
+
+.album {
+    display: inline-block;
+    margin: 20px;
+}
+
+.card {
+    position: relative;
+    margin-bottom: 50px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.card:before {
+    content: "";
+}
+
+.card:hover .meta {
+    height: 105px;
+}
+
+.meta {
+    box-sizing: border-box;
+    bottom: -30px;
+    position: absolute;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    transition: .2s all cubic-bezier(0.215, 0.61, 0.355, 1);
+    padding: 10px 0 10px 20px;
+    height: 75px;
+}
+
+.header {
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 30px;
+    text-transform: uppercase;
+    height: 30px;
+}
+
+.countPhotos {
+    font-size: 11px;
+    text-transform: uppercase;
+    height: 30px;
+}

@@ -7,11 +7,15 @@ module types {
         title: string;
     }
 
+    export interface IFlickrContent{
+        _content: string;
+    }
+
     export interface IFlickrPhotoSet {
         id: string;
-        title: string;
-        description: string;
-        photos: string;
+        title: IFlickrContent;
+        description: IFlickrContent;
+        photos: number;
         primary_photo_extras: any;
     }
 
