@@ -13,6 +13,10 @@
     transition: .2s color ease-out;
 }
 
+.link:last-child {
+    margin-right: 0;
+}
+
 .activeLink {
     color: #000;
 }
