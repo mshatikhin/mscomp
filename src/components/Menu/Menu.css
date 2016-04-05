@@ -16,3 +16,19 @@
 .activeLink {
     color: #000;
 }
+
+@media screen and (max-width: 500px) {
+    .link {
+        display: block;
+        width: 100%;
+        background: #eee;
+        font-size: 20px;
+        padding: 4px;
+        font-weight: 300;
+        margin-bottom: 1px;
+    }
+
+    .link:hover {
+        color: #000;
+    }
+}

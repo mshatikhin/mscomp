@@ -7,9 +7,9 @@
 
 .mainImage {
     display: block;
-    min-width: 100%;
+    margin-left: -25%;
+    max-width: none;
 }
-
 
 .album {
     display: inline-block;
@@ -23,8 +23,9 @@
     position: relative;
     cursor: pointer;
     overflow: hidden;
-    width: 500px;
-    margin-left: 50px;
+    width: 330px;
+    height: 330px;
+    margin: 50px 0 0 50px;
 }
 
 .card:hover .meta {
@@ -57,13 +58,17 @@
     height: 30px;
 }
 
+@media screen and (max-width: 500px) {
+    .mainImage {
+        display: block;
+        margin-left: auto;
+        max-width: 100%;
+    }
 
-@media screen and (max-width: 600px) {
     .card {
         display: block;
         width: 100%;
+        height: auto;
         margin-left: 0;
-        margin-bottom: 10px;
-
     }
 }
