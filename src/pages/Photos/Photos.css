@@ -1,13 +1,13 @@
 .main {
     display: block;
-    width: 500px;
+    width: 960px;
     max-width: 100%;
     margin: 30px auto;
 }
 
 .mainImage {
     display: block;
-    max-height: 600px;
+    width: 100%;
 }
 
 .album {
@@ -29,22 +29,4 @@
 
 .backWrap {
     position: relative;
-}
-
-.lineArrow {
-    position: absolute;
-    overflow: hidden;
-    display: inline-block;
-    font-size: 12px; /*set the size for arrow*/
-    width: 4em;
-    height: 4em;
-    margin-top: -2em;
-    top: 50%;
-}
-
-.lineArrow.left {
-    border-top: 1px solid #a9a9a9;
-    border-left: 1px solid #a9a9a9;
-    transform: rotate(-54deg) skew(-20deg);
-    left: 20px;
 }

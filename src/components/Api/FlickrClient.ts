@@ -18,7 +18,7 @@ class FlickrClient {
             }, (response: any)=> {
                 if (response.stat === "ok") {
                     const photos = response.photoset.photo.map((photo: types.IFlickrPhoto)=> {
-                        return `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`
+                        return `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_h.jpg`
                     })
                     cb(photos)
                 }

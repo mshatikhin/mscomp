@@ -8,11 +8,11 @@
 
 .link {
     font-size: 14px;
-    color: #666;
+    color: #777;
     margin-right: 20px;
     transition: .2s color ease-out;
 }
 
 .activeLink {
-    color: #aaa;
+    color: #000;
 }

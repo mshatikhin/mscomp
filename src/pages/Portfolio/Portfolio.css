@@ -1,6 +1,6 @@
 .main {
     display: block;
-    width: 500px;
+    width: 100%;
     max-width: 100%;
     margin: 30px auto;
 }
@@ -12,14 +12,18 @@
 
 .album {
     display: inline-block;
+    vertical-align: top;
     margin: 20px;
 }
 
 .card {
+    display: inline-block;
+    vertical-align: top;
     position: relative;
-    margin-bottom: 50px;
     cursor: pointer;
     overflow: hidden;
+    width: 500px;
+    margin-left: 50px;
 }
 
 .card:before {
