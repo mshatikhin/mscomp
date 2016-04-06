@@ -10,7 +10,7 @@ class About extends React.Component<any, any> {
     render() {
         return (
             <div>
-                <Paper zDepth={1}>
+                <Paper zDepth={1} style={{marginBottom: 50}}>
                     <section className={styles.about}>
                         <h1>Обо мне</h1>
                         <img src={me1} width="300" height="300"/>

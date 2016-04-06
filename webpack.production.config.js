@@ -1,7 +1,7 @@
 var nodeEnv = process.env.NODE_ENV != null ? process.env.NODE_ENV.toString().trim() : "production";
 var buildPath = "/AppBuild/app/";
 var httpUrl = "http://orvis-1.kontur:4443";
-var publicPath = "/app";
+var publicPath = "/app/";
 
 var webpack = require("webpack");
 var path = require("path");
