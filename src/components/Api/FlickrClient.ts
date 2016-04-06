@@ -31,7 +31,7 @@ class FlickrClient {
                 method: 'flickr.photosets.getList',
                 api_key: apiKey,
                 user_id: userId,
-                primary_photo_extras: "url_m",
+                primary_photo_extras: "url_z",
                 format: 'json',
                 nojsoncallback: 1
             }, (response: types.IFlickrResponse)=> {

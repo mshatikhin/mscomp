@@ -26,16 +26,20 @@ class Main extends React.Component<any, IMainState> {
             });
         })
     };
-
+    
     render() {
         const style: React.CSSProperties = {
             marginBottom: 50
         };
+        
         return (
             <div className={styles.main}>
                 {this.state.albums.map((album: any)=> {
                     return <Paper zDepth={1} style={style} key={album.id}>
-                        <img className={styles.mainImage} src={album.primary_photo_extras.url_m}/>
+                        <img className={styles.mainImage}
+                             src={album.primary_photo_extras.url_z}
+                             width={album.primary_photo_extras.width_z}
+                             height={album.primary_photo_extras.height_z}/>
                     </Paper>
                 })}
             </div>

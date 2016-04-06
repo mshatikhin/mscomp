@@ -1,17 +1,9 @@
 const styles: any = require("./Menu.css");
 import { Link } from "react-router";
 
-interface IProps extends React.Props<any> {
-
-}
-
-interface IState {
-}
-
-class Menu extends React.Component<IProps, IState> {
+class Menu extends React.Component<any, {}> {
     constructor(props: any) {
         super(props);
-        this.state = {}
     }
 
     render() {
@@ -19,6 +11,7 @@ class Menu extends React.Component<IProps, IState> {
             <nav className={styles.wrap}>
                 <Link className={styles.link} activeClassName={styles.activeLink} to="blog">blog</Link>
                 <Link className={styles.link} activeClassName={styles.activeLink} to="photos">portfolio</Link>
+                <Link className={styles.link} activeClassName={styles.activeLink} to="about">about</Link>
             </nav>
         );
     }
