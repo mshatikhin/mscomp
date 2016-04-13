@@ -43,7 +43,7 @@ class Blog extends React.Component<any, IMainState> {
 
         const meta = {
             title: 'Блог Михаила Шатихина',
-            description: 'I am a description, and I can create multiple tags',
+            description: 'Добро пожаловать в блог Михаила Шатихина',
             canonical: 'http://mshatikhin.com/blog',
             meta: {
                 charset: 'utf-8',
@@ -54,9 +54,9 @@ class Blog extends React.Component<any, IMainState> {
         };
         return (
             <div className={styles.main}>
+                <DocumentMeta {...meta} />
                 {this.state.posts.map((p: IPost)=> {
                     return <Paper zDepth={1} style={style}>
-                        <DocumentMeta {...meta} />
                         <h1>{p.title}</h1>
                         <div
                             dangerouslySetInnerHTML={this.createMarkup(p.content)}></div>

@@ -1,4 +1,6 @@
 ﻿const styles:any = require("./Photos.css");
+
+import DocumentMeta from "react-document-meta";
 import {Link} from "react-router";
 import FlickrClient from "../../components/Api/FlickrClient";
 import {Paper} from "material-ui";
@@ -32,13 +34,24 @@ class Photos extends React.Component<IProps, IState> {
     };
 
     render() {
+        const meta = {
+            title: 'Портфолио Михаила Шатихина альбом ' + this.props.photoSetId,
+            description: 'Добро пожаловать в портфолио Михаила Шатихина',
+            canonical: 'http://mshatikhin.com/photos/' + this.props.photoSetId,
+            meta: {
+                charset: 'utf-8',
+                name: {
+                    keywords: 'михаил шатихин,блог,путешествия,фотографии,программирование'
+                }
+            }
+        };
         return (
             <div className={styles.main}>
+                <DocumentMeta {...meta} />
                 <div className={styles.backWrap}>
                     <Link to="photos" className={styles.back}>
                         НАЗАД
                     </Link>
-
                 </div>
                 <div>
                     {this.state.photos.map((photoUrl:any, index:number)=> {

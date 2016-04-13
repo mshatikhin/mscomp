@@ -1,4 +1,6 @@
 ﻿const styles:any = require("./Portfolio.css");
+
+import DocumentMeta from 'react-document-meta';
 import {Paper} from "material-ui";
 import {browserHistory} from "react-router";
 import FlickrClient from "../../components/Api/FlickrClient";
@@ -29,8 +31,20 @@ class Portfolio extends React.Component<any, IState> {
     };
 
     render() {
+        const meta = {
+            title: 'Портфолио Михаила Шатихина',
+            description: 'Добро пожаловать в портфолио Михаила Шатихина',
+            canonical: 'http://mshatikhin.com/photos',
+            meta: {
+                charset: 'utf-8',
+                name: {
+                    keywords: 'михаил шатихин,блог,путешествия,фотографии,программирование'
+                }
+            }
+        };
         return (
             <div className={styles.main}>
+                <DocumentMeta {...meta} />
                 {this.state.albums.map((album:types.IFlickrPhotoSet)=> {
                     return <Paper zDepth={1}
                                   key={album.id}
