@@ -2,7 +2,7 @@ const styles = require("./Menu.css");
 import { Link } from "react-router";
 import {Component} from "react";
 
-class Menu extends Component {
+export default class Menu extends Component {
     constructor(props) {
         super(props);
     }
@@ -17,5 +17,3 @@ class Menu extends Component {
         );
     }
 }
-
-export default Menu;

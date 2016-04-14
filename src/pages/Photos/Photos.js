@@ -12,22 +12,19 @@ export default class Photos extends Component {
         this.state = {
             photos: []
         }
-        this.setPhotos = this.setPhotos.bind(this);
     }
 
     componentWillMount() {
         this.getPictures(this.props.photoSetId);
     }
 
-    setPhotos(photos) {
-        this.setState({
-            photos: photos
-        });
-    }
-
     getPictures(photoSetId) {
         var flickrClient = new FlickrClient();
-        flickrClient.getPhotos("124274905@N03", "1173960c94df6700f0b57dccc50f0925", photoSetId, this.setPhotos);
+        flickrClient.getPhotos("124274905@N03", "1173960c94df6700f0b57dccc50f0925", photoSetId, (photos)=> {
+            this.setState({
+                photos: photos
+            });
+        });
     };
 
     render() {
@@ -51,7 +48,7 @@ export default class Photos extends Component {
                     </Link>
                 </div>
                 <div>
-                    {this.state.photos.map(function (photoUrl, index) {
+                    {this.state.photos.map((photoUrl, index) => {
                         return <Paper zDepth={1} key={index} style={{marginBottom: 20}}>
                             <img className={styles.mainImage} src={photoUrl}/>
                         </Paper>

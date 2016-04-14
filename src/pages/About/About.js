@@ -3,7 +3,7 @@ const me1 = require("./images/1.jpg");
 import {Paper} from "material-ui";
 import {Component} from "react";
 
-class About extends Component {
+export default class About extends Component {
     constructor(props) {
         super(props);
     }
@@ -51,5 +51,3 @@ class About extends Component {
         );
     }
 }
-
-export default About;

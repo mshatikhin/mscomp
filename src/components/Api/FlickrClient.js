@@ -1,10 +1,7 @@
 /**
  * Created by mshat on 28.03.2016.
  */
-class FlickrClient {
-    constructor(){
-    }
-
+export default class FlickrClient {
     getPhotos(userId, apiKey, photosetId, cb) {
         $.getJSON("https://api.flickr.com/services/rest/",
             {
@@ -14,7 +11,7 @@ class FlickrClient {
                 user_id: userId,
                 format: 'json',
                 nojsoncallback: 1
-            }, function(response) {
+            }, (response) => {
                 if (response.stat === "ok") {
                     const photos = response.photoset.photo.map(function(photo) {
                         return `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_h.jpg`
@@ -33,11 +30,10 @@ class FlickrClient {
                 primary_photo_extras: "url_z",
                 format: 'json',
                 nojsoncallback: 1
-            }, function(response) {
+            }, (response) => {
                 if (response.stat === "ok") {
                     cb(response.photosets.photoset)
                 }
             });
     };
 }
-export default FlickrClient;

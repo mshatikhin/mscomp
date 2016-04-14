@@ -5,7 +5,7 @@ import { Paper } from "material-ui";
 import WPClient from "../../components/Api/WPClient";
 import {Component} from "react";
 
-class Blog extends Component {
+export default class Blog extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,12 +22,12 @@ class Blog extends Component {
         });
     }
 
-    createMarkup(content: string) {
+    createMarkup(content) {
         return {__html: content};
     };
 
     render() {
-        const style: React.CSSProperties = {
+        const style = {
             padding: 30,
             marginBottom: 50
         };
@@ -46,7 +46,7 @@ class Blog extends Component {
         return (
             <div className={styles.main}>
                 <DocumentMeta {...meta} />
-                {this.state.posts.map((p: IPost)=> {
+                {this.state.posts.map((p)=> {
                     return <Paper zDepth={1} style={style}>
                         <h1>{p.title}</h1>
                         <div
@@ -57,5 +57,3 @@ class Blog extends Component {
         );
     }
 }
-
-export default Blog;

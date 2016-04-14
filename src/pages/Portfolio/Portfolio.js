@@ -9,7 +9,6 @@ import {Component} from "react";
 export default class Portfolio extends Component {
     constructor(props) {
         super(props);
-        this.setAlbums = this.setAlbums.bind(this);
         this.state = {
             albums: []
         }
@@ -19,15 +18,13 @@ export default class Portfolio extends Component {
         this.getPictures()
     }
 
-    setAlbums(albums) {
-        this.setState({
-            albums: albums
-        });
-    }
-
     getPictures() {
         var flickrClient = new FlickrClient();
-        flickrClient.getAlbums("124274905@N03", "1173960c94df6700f0b57dccc50f0925", this.setAlbums)
+        flickrClient.getAlbums("124274905@N03", "1173960c94df6700f0b57dccc50f0925", (albums) => {
+            this.setState({
+                albums: albums
+            });
+        })
     };
 
     render() {
@@ -45,12 +42,12 @@ export default class Portfolio extends Component {
         return (
             <div className={styles.main}>
                 <DocumentMeta {...meta} />
-                {this.state.albums.map(function (album) {
+                {this.state.albums.map((album) => {
                     return <Paper zDepth={1}
                                   key={album.id}
                                   className={styles.card}
                                   title="Перейти в альбом"
-                                  onClick={function(){browserHistory.push("/photos/"+album.id)}}>
+                                  onClick={()=>{browserHistory.push("/photos/"+album.id)}}>
                         <div className={styles.meta}>
                             <header className={styles.header}>{album.title._content}</header>
                             <span className={styles.countPhotos}>{album.photos} photos</span>

@@ -5,7 +5,7 @@ import Menu from "../Menu/Menu";
 import {Link} from "react-router";
 import {Component} from "react";
 
-class Layout extends Component {
+export default class Layout extends Component {
     constructor(props) {
         super(props);
     }
@@ -21,5 +21,3 @@ class Layout extends Component {
         );
     }
 }
-
-export default Layout;
