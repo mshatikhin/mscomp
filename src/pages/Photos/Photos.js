@@ -1,36 +1,33 @@
-﻿const styles:any = require("./Photos.css");
+﻿const styles = require("./Photos.css");
 
 import DocumentMeta from "react-document-meta";
 import {Link} from "react-router";
 import FlickrClient from "../../components/Api/FlickrClient";
 import {Paper} from "material-ui";
+import {Component} from "react";
 
-interface IState {
-    photos:string[];
-}
-interface IProps {
-    photoSetId:string;
-}
-
-class Photos extends React.Component<IProps, IState> {
-    constructor(props:any) {
+export default class Photos extends Component {
+    constructor(props) {
         super(props);
         this.state = {
             photos: []
         }
+        this.setPhotos = this.setPhotos.bind(this);
     }
 
     componentWillMount() {
         this.getPictures(this.props.photoSetId);
     }
 
-    getPictures = (photoSetId:string) => {
+    setPhotos(photos) {
+        this.setState({
+            photos: photos
+        });
+    }
+
+    getPictures(photoSetId) {
         var flickrClient = new FlickrClient();
-        flickrClient.getPhotos("124274905@N03", "1173960c94df6700f0b57dccc50f0925", photoSetId, (photos:string[])=> {
-            this.setState({
-                photos: photos
-            });
-        })
+        flickrClient.getPhotos("124274905@N03", "1173960c94df6700f0b57dccc50f0925", photoSetId, this.setPhotos);
     };
 
     render() {
@@ -54,14 +51,13 @@ class Photos extends React.Component<IProps, IState> {
                     </Link>
                 </div>
                 <div>
-                    {this.state.photos.map((photoUrl:any, index:number)=> {
-                        return  <Paper zDepth={1} key={index} style={{marginBottom: 20}}>
+                    {this.state.photos.map(function (photoUrl, index) {
+                        return <Paper zDepth={1} key={index} style={{marginBottom: 20}}>
                             <img className={styles.mainImage} src={photoUrl}/>
                         </Paper>
-                        })}
+                    })}
                 </div>
             </div>
         );
     }
 }
-export default Photos;

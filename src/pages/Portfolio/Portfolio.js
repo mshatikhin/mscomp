@@ -1,17 +1,15 @@
-﻿const styles:any = require("./Portfolio.css");
+﻿const styles = require("./Portfolio.css");
 
-import DocumentMeta from 'react-document-meta';
+import DocumentMeta from "react-document-meta";
 import {Paper} from "material-ui";
 import {browserHistory} from "react-router";
 import FlickrClient from "../../components/Api/FlickrClient";
+import {Component} from "react";
 
-interface IState {
-    albums:types.IFlickrPhotoSet[];
-}
-
-class Portfolio extends React.Component<any, IState> {
-    constructor(props:any) {
+export default class Portfolio extends Component {
+    constructor(props) {
         super(props);
+        this.setAlbums = this.setAlbums.bind(this);
         this.state = {
             albums: []
         }
@@ -21,13 +19,15 @@ class Portfolio extends React.Component<any, IState> {
         this.getPictures()
     }
 
-    getPictures = ()=> {
+    setAlbums(albums) {
+        this.setState({
+            albums: albums
+        });
+    }
+
+    getPictures() {
         var flickrClient = new FlickrClient();
-        flickrClient.getAlbums("124274905@N03", "1173960c94df6700f0b57dccc50f0925", (albums)=> {
-            this.setState({
-                albums: albums
-            });
-        })
+        flickrClient.getAlbums("124274905@N03", "1173960c94df6700f0b57dccc50f0925", this.setAlbums)
     };
 
     render() {
@@ -45,12 +45,12 @@ class Portfolio extends React.Component<any, IState> {
         return (
             <div className={styles.main}>
                 <DocumentMeta {...meta} />
-                {this.state.albums.map((album:types.IFlickrPhotoSet)=> {
+                {this.state.albums.map(function (album) {
                     return <Paper zDepth={1}
                                   key={album.id}
                                   className={styles.card}
                                   title="Перейти в альбом"
-                                  onClick={()=>{browserHistory.push("/photos/"+album.id)}}>
+                                  onClick={function(){browserHistory.push("/photos/"+album.id)}}>
                         <div className={styles.meta}>
                             <header className={styles.header}>{album.title._content}</header>
                             <span className={styles.countPhotos}>{album.photos} photos</span>
@@ -65,5 +65,3 @@ class Portfolio extends React.Component<any, IState> {
         );
     }
 }
-
-export default Portfolio;

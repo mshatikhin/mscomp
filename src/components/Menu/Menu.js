@@ -1,8 +1,9 @@
-const styles: any = require("./Menu.css");
+const styles = require("./Menu.css");
 import { Link } from "react-router";
+import {Component} from "react";
 
-class Menu extends React.Component<any, {}> {
-    constructor(props: any) {
+class Menu extends Component {
+    constructor(props) {
         super(props);
     }
 

@@ -1,21 +1,12 @@
-﻿const styles: any = require("./Blog.css");
+﻿const styles = require("./Blog.css");
 
 import DocumentMeta from 'react-document-meta';
 import { Paper } from "material-ui";
 import WPClient from "../../components/Api/WPClient";
+import {Component} from "react";
 
-interface IPost {
-    title: string;
-    content: string;
-    ID: number;
-}
-
-interface IMainState {
-    posts: IPost[];
-}
-
-class Blog extends React.Component<any, IMainState> {
-    constructor(props: any) {
+class Blog extends Component {
+    constructor(props) {
         super(props);
         this.state = {
             posts: []

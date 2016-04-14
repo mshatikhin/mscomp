@@ -1,6 +1,5 @@
 var nodeEnv = process.env.NODE_ENV != null ? process.env.NODE_ENV.toString().trim() : "production";
 var buildPath = "/AppBuild/app/";
-var httpUrl = "http://orvis-1.kontur:4443";
 var publicPath = "/app/";
 
 var webpack = require("webpack");
@@ -17,8 +16,7 @@ var plugins = [
     new Clean(["AppBuild/app"]),
     new webpack.DefinePlugin({
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        PRODUCTION: JSON.stringify(true),
-        API_URL: JSON.stringify(httpUrl)
+        PRODUCTION: JSON.stringify(true)
     }),
     new webpack.ProvidePlugin({
         "$": "jquery",
@@ -41,12 +39,16 @@ var plugins = [
     })
 ];
 
-var entry = ["./app/AppStart.tsx"];
+var entry = ["./app/AppStart.js"];
 
 var loaders = [
     {
-        test: /\.(jsx?|tsx?)$/,
-        loader: "babel?presets[]=react,presets[]=es2015!ts",
+        test: /\.js$/,
+        loader: "react-hot!babel",
+        query: {
+            presets: ["es2015","react"],
+            plugins: ["transform-es2015-arrow-functions"]
+        },
         include: path.resolve(__dirname, "src")
     },
     {
@@ -54,16 +56,8 @@ var loaders = [
         loader: ExtractTextPlugin.extract("css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader")
     },
     {
-        test: /\.(less)$/,
-        loader: ExtractTextPlugin.extract("css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!less")
-    },
-    {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
         loader: "url?name=[path][name].[ext]&limit=10000"
-    },
-    {
-        test: /\.(woff|woff2)$/,
-        loader: "url?limit=100000"
     }
 ];
 
@@ -81,7 +75,7 @@ var config = {
         aggregateTimeout: 200
     },
     resolve: {
-        extensions: ["", ".js", ".ts", ".tsx"],
+        extensions: ["", ".js"],
         root: path.resolve(__dirname, ".."),
         modulesDirectories: ["node_modules"],
         ui: path.resolve(__dirname, "/src/components/")

@@ -27,7 +27,7 @@
     margin-bottom: 50px;
 }
 
-.card:nth-child(even){
+.card:nth-child(odd){
     margin-right: 0;
 }
 

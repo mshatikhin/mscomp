@@ -1,6 +1,5 @@
 var nodeEnv = process.env.NODE_ENV != null ? process.env.NODE_ENV.toString().trim() : "development";
 var buildPath = "/AppBuild/app/";
-var httpUrl = "http://localhost:55443";
 var devUrl = "http://localhost:8080";
 var publicPath = "/";
 
@@ -23,8 +22,7 @@ var plugins = [
     new Clean(["AppBuild/app"]),
     new webpack.DefinePlugin({
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        PRODUCTION: JSON.stringify(false),
-        API_URL: JSON.stringify(httpUrl)
+        PRODUCTION: JSON.stringify(false)
     }),
     new webpack.ProvidePlugin({
         "$": "jquery",
@@ -43,7 +41,7 @@ var plugins = [
     new webpack.HotModuleReplacementPlugin()
 ];
 
-var entry = ["./app/AppStart.tsx", "webpack/hot/only-dev-server", "webpack-dev-server/client?" + devUrl];
+var entry = ["./app/AppStart.js", "webpack/hot/only-dev-server", "webpack-dev-server/client?" + devUrl];
 
 var devServer = {
     host: "localhost",
@@ -55,8 +53,8 @@ var devServer = {
 
 var loaders = [
     {
-        test: /\.(jsx?|tsx?)$/,
-        loader: "react-hot!babel?presets[]=react,presets[]=es2015!ts",
+        test: /\.js$/,
+        loader: "react-hot!babel?presets[]=react,presets[]=es2015,plugins[]=transform-es2015-arrow-functions",
         include: path.resolve(__dirname, "src")
     },
     {
@@ -64,16 +62,8 @@ var loaders = [
         loader: "style!css?modules&importLoaders=1&localIdentName=[name]__[local]!postcss-loader"
     },
     {
-        test: /\.(less)$/,
-        loader: "style!css?modules&importLoaders=1&localIdentName=[name]__[local]!postcss-loader!less"
-    },
-    {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
         loader: "url?name=[path][name].[ext]&limit=10000"
-    },
-    {
-        test: /\.(woff|woff2)$/,
-        loader: "url?limit=100000"
     }
 ];
 
@@ -92,7 +82,7 @@ var config = {
         aggregateTimeout: 200
     },
     resolve: {
-        extensions: ["", ".js", ".ts", ".tsx"],
+        extensions: ["", ".js"],
         root: path.resolve(__dirname, ".."),
         modulesDirectories: ["node_modules"],
         ui: path.resolve(__dirname, "/src/components/")

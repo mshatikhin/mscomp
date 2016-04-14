@@ -1,2 +1,2 @@
 # mscomp
-ReactJS components
+ReactJS home site

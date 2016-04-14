@@ -1,12 +1,8 @@
-﻿const styles: any = require("./NotFound.css");
+﻿const styles = require("./NotFound.css");
+import {Component} from "react";
 
-interface INotFoundProps {
-}
-interface INotFoundState {
-}
-
-class NotFound extends React.Component<INotFoundProps, INotFoundState> {
-    constructor(props: INotFoundProps) {
+class NotFound extends Component {
+    constructor(props) {
         super(props);
     }
 

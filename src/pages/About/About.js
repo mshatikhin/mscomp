@@ -1,9 +1,10 @@
-const styles:any = require("./About.css");
-const me1:any = require("./images/1.jpg");
+const styles = require("./About.css");
+const me1 = require("./images/1.jpg");
 import {Paper} from "material-ui";
+import {Component} from "react";
 
-class About extends React.Component<any, any> {
-    constructor(props:any) {
+class About extends Component {
+    constructor(props) {
         super(props);
     }
 
