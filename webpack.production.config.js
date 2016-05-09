@@ -44,7 +44,7 @@ var entry = ["./app/AppStart.js"];
 var loaders = [
     {
         test: /\.js$/,
-        loader: "react-hot!babel?presets[]=react,presets[]=es2015,plugins[]=transform-es2015-arrow-functions",
+        loader: "react-hot!babel",
         include: path.resolve(__dirname, "src")
     },
     {

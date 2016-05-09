@@ -1,8 +1,9 @@
 /**
  * Created by mshat on 28.03.2016.
  */
+// @flow
 export default class FlickrClient {
-    getPhotos(userId, apiKey, photosetId, cb) {
+    getPhotos(userId:string, apiKey:string, photosetId:number, cb) {
         $.getJSON("https://api.flickr.com/services/rest/",
             {
                 method: 'flickr.photosets.getPhotos',
@@ -13,7 +14,7 @@ export default class FlickrClient {
                 nojsoncallback: 1
             }, (response) => {
                 if (response.stat === "ok") {
-                    const photos = response.photoset.photo.map(function(photo) {
+                    const photos = response.photoset.photo.map(function (photo) {
                         return `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_h.jpg`
                     });
                     cb(photos);
@@ -21,7 +22,7 @@ export default class FlickrClient {
             });
     }
 
-    getAlbums(userId, apiKey, cb) {
+    getAlbums(userId:string, apiKey:string, cb) {
         $.getJSON("https://api.flickr.com/services/rest/",
             {
                 method: 'flickr.photosets.getList',
