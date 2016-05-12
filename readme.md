@@ -1,2 +1,0 @@
-# mscomp
-ReactJS home site
