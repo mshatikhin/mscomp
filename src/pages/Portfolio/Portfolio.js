@@ -28,6 +28,7 @@ export default class Portfolio extends Component {
     };
 
     render() {
+        
         const meta = {
             title: 'Портфолио Михаила Шатихина',
             description: 'Добро пожаловать в портфолио Михаила Шатихина',
