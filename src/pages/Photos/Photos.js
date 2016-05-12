@@ -18,7 +18,7 @@ export default class Photos extends Component {
         this.getPictures(this.props.photoSetId);
     }
 
-    getPictures(photoSetId) {
+    getPictures(photoSetId: number) {
         var flickrClient = new FlickrClient();
         flickrClient.getPhotos("124274905@N03", "1173960c94df6700f0b57dccc50f0925", photoSetId, (photos)=> {
             this.setState({
