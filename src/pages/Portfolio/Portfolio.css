@@ -6,7 +6,7 @@
 .mainImage {
     display: block;
     max-width: none;
-    margin-left: -25%;
+    margin: 0 0 0 -25%;
 }
 
 .album {
@@ -22,7 +22,7 @@
     cursor: pointer;
     overflow: hidden;
     width: 455px;
-    height: 425px;
+    height: 415px;
     margin-right: 50px;
     margin-bottom: 50px;
 }
