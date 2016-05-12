@@ -1,2 +1,0 @@
-# mscomp
-ReactJS components
