@@ -3,7 +3,7 @@
  */
 // @flow
 export default class FlickrClient {
-    getPhotos(userId:string, apiKey:string, photosetId:number, cb) {
+    getPhotos(userId:string, apiKey:string, photosetId:string, cb) {
         $.getJSON("https://api.flickr.com/services/rest/",
             {
                 method: 'flickr.photosets.getPhotos',
