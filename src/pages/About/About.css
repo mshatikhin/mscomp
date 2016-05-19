@@ -1,6 +1,6 @@
 .about {
     display: block;
+    margin: auto;
+    width: 960px;
     max-width: 100%;
-    padding: 25px;
-
 }
