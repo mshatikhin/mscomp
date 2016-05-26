@@ -1,25 +1,27 @@
-﻿const styles = require("./Blog.css");
-
-import DocumentMeta from 'react-document-meta';
-import { Paper } from "material-ui";
-import WPClient from "../../components/Api/WPClient";
+﻿import styles from "./Blog.css";
+import {Container} from "flux/utils";
+import DocumentMeta from "react-document-meta";
+import Paper from "material-ui/Paper";
+import BlogStore from "../../stores/BlogStore";
 import {Component} from "react";
 
-export default class Blog extends Component {
+class BlogContainer extends Component {
+
+    static getStores() {
+        return [BlogStore];
+    }
+
+    static calculateState(prevState) {
+        return {
+            posts: BlogStore.getState()
+        };
+    }
+
     constructor(props) {
         super(props);
         this.state = {
-            posts: []
+            posts: BlogStore.getInitialState()
         }
-    }
-
-    componentWillMount() {
-        const wpClient = new WPClient();
-        wpClient.getBlog("mshatikhin.wordpress.com", (data)=> {
-            this.setState({
-                posts: data.posts
-            })
-        });
     }
 
     createMarkup(content) {
@@ -46,8 +48,8 @@ export default class Blog extends Component {
         return (
             <div className={styles.main}>
                 <DocumentMeta {...meta} />
-                {this.state.posts.map((p)=> {
-                    return <Paper zDepth={1} style={style}>
+                {this.state.posts != null && this.state.posts.map((p)=> {
+                    return <Paper key={p.ID} zDepth={1} style={style}>
                         <h1>{p.title}</h1>
                         <div
                             dangerouslySetInnerHTML={this.createMarkup(p.content)}></div>
@@ -57,3 +59,7 @@ export default class Blog extends Component {
         );
     }
 }
+
+
+const container = Container.create(BlogContainer);
+export default container;

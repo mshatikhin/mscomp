@@ -1,12 +1,12 @@
 import "babel-polyfill";
+import "./App.css";
 import {browserHistory, Router} from "react-router";
 import Routes from "./Routes";
-import "./App.css";
-const reactDom = require("react-dom");
+import ReactDom from "react-dom";
+
 var rootInstance = null;
 
-var router = <Router history={browserHistory} routes={ Routes }/>;
-rootInstance = reactDom.render(router, document.getElementById("app"));
+rootInstance = ReactDom.render(<Router history={browserHistory} routes={ Routes }/>, document.getElementById("app"));
 
 if (module.hot) {
     var injection = require("react-hot-loader/Injection");
