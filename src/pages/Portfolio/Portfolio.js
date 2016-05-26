@@ -1,34 +1,31 @@
-﻿const styles = require("./Portfolio.css");
-
+﻿import styles from "./Portfolio.css";
+import {Container} from "flux/utils";
 import DocumentMeta from "react-document-meta";
 import {Paper} from "material-ui";
 import {browserHistory} from "react-router";
-import FlickrClient from "../../components/Api/FlickrClient";
+import AlbumsStore from "../../stores/AlbumsStore";
 import {Component} from "react";
 
-export default class Portfolio extends Component {
+class PortfolioContainer extends Component {
+
+    static getStores() {
+        return [AlbumsStore];
+    }
+
+    static calculateState(prevState) {
+        return {
+            albums: AlbumsStore.getState()
+        };
+    }
+
     constructor(props) {
         super(props);
         this.state = {
-            albums: []
+            albums: AlbumsStore.getInitialState()
         }
     }
 
-    componentWillMount() {
-        this.getPictures()
-    }
-
-    getPictures() {
-        var flickrClient = new FlickrClient();
-        flickrClient.getAlbums("124274905@N03", "1173960c94df6700f0b57dccc50f0925", (albums) => {
-            this.setState({
-                albums: albums
-            });
-        })
-    };
-
     render() {
-
         const meta = {
             title: 'Портфолио Михаила Шатихина',
             description: 'Добро пожаловать в портфолио Михаила Шатихина',
@@ -43,7 +40,7 @@ export default class Portfolio extends Component {
         return (
             <div className={styles.main}>
                 <DocumentMeta {...meta} />
-                {this.state.albums.map((album) => {
+                {this.state.albums != null && this.state.albums.map((album) => {
                     var additionalClass = (album.primary_photo_extras.width_z - album.primary_photo_extras.height_z) > 0 ? styles.horizontalImage : styles.verticalImage;
                     return <Paper zDepth={1}
                                   key={album.id}
@@ -64,3 +61,6 @@ export default class Portfolio extends Component {
         );
     }
 }
+
+const container = Container.create(PortfolioContainer);
+export default container;

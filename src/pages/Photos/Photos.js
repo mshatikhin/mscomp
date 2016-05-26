@@ -1,31 +1,34 @@
-﻿const styles = require("./Photos.css");
-
+﻿import styles from "./Photos.css";
+import {Container} from "flux/utils";
 import DocumentMeta from "react-document-meta";
 import {Link} from "react-router";
-import FlickrClient from "../../components/Api/FlickrClient";
 import {Paper} from "material-ui";
+import PhotosStore from "../../stores/PhotosStore";
+import PortfolioActions from "../../actions/PortfolioActions";
 import {Component} from "react";
 
-export default class Photos extends Component {
+class PhotosContainer extends Component {
+
+    static getStores() {
+        return [PhotosStore];
+    }
+
+    static calculateState(prevState) {
+        return {
+            photos: PhotosStore.getState()
+        };
+    }
+
     constructor(props) {
         super(props);
         this.state = {
-            photos: []
+            photos: PhotosStore.getInitialState()
         }
     }
 
-    componentWillMount() {
-        this.getPictures(this.props.photoSetId);
+    componentWillUnmount() {
+        PortfolioActions.resetStore();
     }
-
-    getPictures(photoSetId: string) {
-        var flickrClient = new FlickrClient();
-        flickrClient.getPhotos("124274905@N03", "1173960c94df6700f0b57dccc50f0925", photoSetId, (photos)=> {
-            this.setState({
-                photos: photos
-            });
-        });
-    };
 
     render() {
         const meta = {
@@ -48,7 +51,7 @@ export default class Photos extends Component {
                     </Link>
                 </div>
                 <div>
-                    {this.state.photos.map((photoUrl, index) => {
+                    {this.state.photos != null && this.state.photos.map((photoUrl, index) => {
                         return <Paper zDepth={1} key={index} style={{marginBottom: 20}}>
                             <img className={styles.mainImage} src={photoUrl}/>
                         </Paper>
@@ -58,3 +61,6 @@ export default class Photos extends Component {
         );
     }
 }
+
+const container = Container.create(PhotosContainer);
+export default container;

@@ -60,6 +60,5 @@ class BlogContainer extends Component {
     }
 }
 
-
 const container = Container.create(BlogContainer);
 export default container;
