@@ -28,7 +28,7 @@ export default class Portfolio extends Component {
     };
 
     render() {
-        
+
         const meta = {
             title: 'Портфолио Михаила Шатихина',
             description: 'Добро пожаловать в портфолио Михаила Шатихина',
@@ -44,6 +44,7 @@ export default class Portfolio extends Component {
             <div className={styles.main}>
                 <DocumentMeta {...meta} />
                 {this.state.albums.map((album) => {
+                    var additionalClass = (album.primary_photo_extras.width_z - album.primary_photo_extras.height_z) > 0 ? styles.horizontalImage : styles.verticalImage;
                     return <Paper zDepth={1}
                                   key={album.id}
                                   className={styles.card}
@@ -53,7 +54,7 @@ export default class Portfolio extends Component {
                             <header className={styles.header}>{album.title._content}</header>
                             <span className={styles.countPhotos}>{album.photos} photos</span>
                         </div>
-                        <img className={styles.mainImage}
+                        <img className={styles.mainImage + " " + additionalClass}
                              src={album.primary_photo_extras.url_z}
                              width={album.primary_photo_extras.width_z}
                              height={album.primary_photo_extras.height_z}/>

@@ -8,7 +8,7 @@
 .mainImage {
     display: block;
     max-width: none;
-    margin: 0 0 0 -25%;
+    min-width: 455px;
 }
 
 .album {
@@ -29,7 +29,7 @@
     margin-bottom: 50px;
 }
 
-.card:nth-child(odd){
+.card:nth-child(odd) {
     margin-right: 0;
 }
 
@@ -61,6 +61,14 @@
     font-size: 11px;
     text-transform: uppercase;
     height: 30px;
+}
+
+.horizontalImage {
+    margin: 0 0 0 -25%;
+}
+
+.verticalImage {
+    margin: -15% 0 0 0;
 }
 
 @media screen and (max-width: 500px) {

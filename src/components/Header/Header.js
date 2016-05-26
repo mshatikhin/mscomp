@@ -13,7 +13,7 @@ export default class Layout extends Component {
     render() {
         return (
             <div className={styles.header}>
-                <Link to="blog" className={styles.logoLink}>
+                <Link to="/" className={styles.logoLink}>
                     <img src={image} className={styles.logo} title="Блог Шатихина Михаила" alt="Блог Шатихина Михаила"/>
                 </Link>
                 <Menu />

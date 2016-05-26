@@ -8,7 +8,7 @@ import About from "../pages/About/About";
 
 export default (
     <Route path="/" component={ Layout }>
-        <IndexRedirect to="blog"/>
+        <IndexRedirect to="photos"/>
         <Route path="blog" component={ Blog }/>
         <Route path="about" component={ About }/>
         <Route path="photos" component={ Portfolio }/>
