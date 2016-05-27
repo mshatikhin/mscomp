@@ -1,5 +1,5 @@
 const styles = require("./Header.css");
-const image = require("./images/logo.png");
+const image = require("./images/logo_m.png");
 
 import Menu from "../Menu/Menu";
 import {Link} from "react-router";
