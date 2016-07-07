@@ -19,11 +19,12 @@ let loadAlbums = () => {
 let loadPhotos = (ctx: any) => {
     PortfolioActions.getPhotos("124274905@N03", "1173960c94df6700f0b57dccc50f0925",ctx.params.id);
 };
+//<Route path="blog" component={ Blog } onEnter={ loadBlog }/>
 
 export default (
     <Route path="/" component={ Layout }>
         <IndexRedirect to="photos"/>
-        <Route path="blog" component={ Blog } onEnter={ loadBlog }/>
+
         <Route path="about" component={ About }/>
         <Route path="photos" component={ Portfolio } onEnter={ loadAlbums }/>
         <Route path="photos/:id" component={ Photos }  onEnter={ loadPhotos }/>

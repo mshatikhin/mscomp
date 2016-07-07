@@ -14,7 +14,7 @@ export default class Layout extends Component {
         return (
             <div className={styles.header}>
                 <Link to="/" className={styles.logoLink}>
-                    <img src={image} className={styles.logo} title="Блог Шатихина Михаила" alt="Блог Шатихина Михаила"/>
+                    <img src={image} className={styles.logo} title="Фотоблог Шатихина Михаила" alt="Фотоблог Шатихина Михаила"/>
                 </Link>
                 <Menu />
             </div>

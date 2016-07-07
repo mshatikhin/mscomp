@@ -1,4 +1,5 @@
 .header {
+    position: relative;
     display: block;
     height: auto;
     width: 100%;
@@ -16,7 +17,6 @@
 
 .logoLink {
     display: inline-block;
-    text-align: center;
 }
 
 .logo {
