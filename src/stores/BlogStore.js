@@ -9,6 +9,7 @@ import {ReduceStore} from "flux/utils";
 import Dispatcher from "../dispatcher/AppDispatcher";
 
 let blogState;
+let postState;
 
 class BlogStore extends ReduceStore {
 
@@ -17,6 +18,13 @@ class BlogStore extends ReduceStore {
             return null;
 
         return blogState.toJS();
+    }
+    
+    getPost(){
+         if (postState == null)
+            return null;
+
+        return postState.toJS();
     }
 
     getInitialState() {
@@ -28,8 +36,11 @@ class BlogStore extends ReduceStore {
             case Constants.UPDATE_BLOG:
                 blogState = Immutable.fromJS(action.content);
                 return this.getState();
+            case Constants.UPDATE_POST:
+                postState = Immutable.fromJS(action.content);
+                return this.getPost();
             default:
-                return this.getState();
+                return this.getInitialState();
         }
     }
 }

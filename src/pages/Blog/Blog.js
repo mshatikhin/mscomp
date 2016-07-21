@@ -25,13 +25,13 @@ class BlogContainer extends Component {
     }
 
     createMarkup(content) {
-        return {__html: content};
+        return { __html: content };
     };
 
     render() {
         const style = {
             padding: 30,
-            marginBottom: 50
+            marginBottom: 30
         };
 
         const meta = {
@@ -45,16 +45,22 @@ class BlogContainer extends Component {
                 }
             }
         };
+
         return (
             <div className={styles.main}>
                 <DocumentMeta {...meta} />
-                {this.state.posts != null && this.state.posts.map((p)=> {
-                    return <Paper key={p.ID} zDepth={1} style={style}>
-                        <h1>{p.title}</h1>
-                        <div
-                            dangerouslySetInnerHTML={this.createMarkup(p.content)}></div>
-                    </Paper>
-                })}
+                {this.state.posts != null &&
+                    <ul className={styles.posts}>
+                        {this.state.posts.map(p => <li key={p.ID} className={styles.postsLink}>
+                            <Paper zDepth={1} style={style}>
+                                <a href={`/blog/${p.ID}`} className={styles.link}>
+                                    <header className={styles.postHeader}>{p.title}</header>
+                                    <div dangerouslySetInnerHTML={this.createMarkup(p.excerpt + "<span>Читать далее...</span>")  }></div>
+                                </a>
+                            </Paper>
+                        </li>) }
+                    </ul>
+                }
             </div>
         );
     }

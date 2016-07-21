@@ -6,15 +6,9 @@
     margin-bottom: 100px;
 }
 
-.mainImage {
-    display: block;
-    width: 100%;
-    margin-bottom: 40px;
-}
-
-.album {
-    display: inline-block;
-    margin: 20px;
+.main img,
+.main iframe {
+    max-width: 100% !important;
 }
 
 .back {

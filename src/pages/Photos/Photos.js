@@ -31,6 +31,10 @@ class PhotosContainer extends Component {
     }
 
     render() {
+        const style = {
+            padding: 30
+        };
+
         const meta = {
             title: 'Портфолио Михаила Шатихина альбом ' + this.props.photoSetId,
             description: 'Добро пожаловать в портфолио Михаила Шатихина',
@@ -42,20 +46,26 @@ class PhotosContainer extends Component {
                 }
             }
         };
+
         return (
-            <div className={styles.main}>
+            this.state.photos && <div className={styles.main}>
                 <DocumentMeta {...meta} />
                 <div className={styles.backWrap}>
-                    <Link to="photos" className={styles.back}>
-                        НАЗАД
+                    <Link to="/photos" className={styles.back}>
+                        ВЕРНУТЬСЯ В ПОРТФОЛИО
                     </Link>
                 </div>
                 <div>
-                    {this.state.photos != null && this.state.photos.map((photoUrl, index) => {
-                        return <Paper zDepth={1} key={index} style={{marginBottom: 20}}>
-                            <img className={styles.mainImage} src={photoUrl}/>
-                        </Paper>
-                    })}
+                    <Paper zDepth={1} style={style}>
+                        {this.state.photos.map((photoUrl, index) => {
+                            return <img key={index} className={styles.mainImage} src={photoUrl}/>
+                        }) }
+                    </Paper>
+                </div>
+                <div className={styles.backWrap}>
+                    <Link to="/photos" className={styles.back}>
+                        ВЕРНУТЬСЯ В ПОРТФОЛИО
+                    </Link>
                 </div>
             </div>
         );

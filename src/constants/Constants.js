@@ -8,4 +8,5 @@ module.exports = keyMirror({
     UPDATE_ALBUMS: null,
     UPDATE_PHOTOS: null,
     RESET_PHOTOS: null,
+    UPDATE_POST: null,
 });

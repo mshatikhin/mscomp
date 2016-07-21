@@ -5,6 +5,37 @@
     max-width: 100%;
 }
 
-.main img, .main iframe {
+.main img,
+.main iframe {
     max-width: 100% !important;
+}
+
+.posts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.postHeader {
+    font-family: "Georgia, 'Times New Roman', Times, serif";
+    font-size: 22px;
+    color: #111;
+}
+
+.postsLink {
+    font-size: 16px;
+    padding: 5px 0;
+    margin: 5px 0;
+}
+
+.posts_link:hover {
+    cursor: pointer;
+}
+
+.link {
+    color: #444;
+}
+
+.link:hover {
+    cursor: pointer;
 }
