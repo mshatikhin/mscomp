@@ -1,4 +1,6 @@
-* {
+*,
+*:after,
+*:before {
     box-sizing: border-box;
 }
 
@@ -19,7 +21,12 @@ body {
     overflow-y: scroll;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: normal;
 }
@@ -54,7 +61,8 @@ img[src=""] {
     content: "";
 }
 
-a:focus, button:focus {
+a:focus,
+button:focus {
     outline: none;
 }
 
@@ -63,7 +71,8 @@ input {
     padding: 4px 8px;
 }
 
-input[disabled], .input:disabled {
+input[disabled],
+.input:disabled {
     color: #666;
     background-color: rgb(235, 235, 228);
     border-color: rgb(235, 235, 228);

@@ -44,15 +44,13 @@ export default class About extends Component {
                         </p>
                         <div>
                             Если желаете со мной поработать, сообщите мне:
-                            <div>
-                                вконтакте: <a href="//vk.com/id2069565">Михаил Шатихин</a>
-                                <br />
-                                почта: <a href="mailto:mshatikhin@gmail.com">mshatikhin@gmail.com</a>
-                                <br />
-                                тел.: 8(912)043-98-27
-                                <br />
-                                <br />
-                            </div>
+                            <ul className={styles.contactList}>
+                                <li>vk: <a href="//vk.me/id2069565">Михаил Шатихин</a></li>
+                                <li>facebook: <a href="//facebook.com/mshatikhin">Михаил Шатихин</a></li>
+                                <li>instagram: <a href="//instagram.com/mshatikhin.photo">Михаил Шатихин</a></li>
+                                <li>gmail: <a href="mailto:mshatikhin@gmail.com">mshatikhin@gmail.com</a></li>
+                                <li>phone/whatsApp/telegram.: +7(912)043-98-27</li>
+                            </ul>
                         </div>
                     </article>
                 </Paper>

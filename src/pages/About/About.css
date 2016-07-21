@@ -4,3 +4,8 @@
     width: 960px;
     max-width: 100%;
 }
+
+.contactList{
+    margin: 0;
+    padding: 10px 0 0 20px;            
+}

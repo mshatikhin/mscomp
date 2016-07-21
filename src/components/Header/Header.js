@@ -13,10 +13,17 @@ export default class Layout extends Component {
     render() {
         return (
             <div className={styles.header}>
-                <Link to="/" className={styles.logoLink}>
-                    <img src={image} className={styles.logo} title="Фотоблог Шатихина Михаила" alt="Фотоблог Шатихина Михаила"/>
-                </Link>
-                <Menu />
+                <div className={styles.headerWrapper}>
+                    <Link to="/" className={styles.logoLink}>
+                        <img src={image} className={styles.logo} title="Фотоблог Шатихина Михаила" alt="Фотоблог Шатихина Михаила"/>
+                        <div className={styles.title}>
+                            ФОТОГРАФ МИХАИЛ ШАТИХИН
+                        </div>
+                    </Link>
+                    <div className={styles.menu}>
+                        <Menu />
+                    </div>
+                </div>
             </div>
         );
     }
