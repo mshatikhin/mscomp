@@ -19,7 +19,7 @@ class BlogStore extends ReduceStore {
 
         return blogState.toJS();
     }
-    
+
     getPost(){
          if (postState == null)
             return null;

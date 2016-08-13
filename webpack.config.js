@@ -71,7 +71,7 @@ var config = {
     context: path.join(__dirname, "src"),
     entry: entry,
     devServer: devServer,
-    devtool: "eval",
+    devtool: "eval-source-map",
     output: {
         publicPath: publicPath,
         path: path.join(__dirname, buildPath),

@@ -1,5 +1,16 @@
 [include]
 /src/**/*.js
+node_modules/flux/flow/include
 
 [ignore]
 .*/node_modules/
+
+[libs]
+interfaces/
+
+[options]
+module.name_mapper='.*\(.css\)' -> 'CSSModule'
+module.system=haste
+strip_root=true
+module.file_ext=.js
+module.file_ext=.css

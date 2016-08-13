@@ -1,3 +1,5 @@
+/* @flow */
+
 ﻿import styles from "./Blog.css";
 import {Container} from "flux/utils";
 import DocumentMeta from "react-document-meta";
@@ -6,6 +8,10 @@ import BlogStore from "../../stores/BlogStore";
 import {Component} from "react";
 
 class BlogContainer extends Component {
+
+    state: {
+      posts: []
+    }
 
     static getStores() {
         return [BlogStore];
