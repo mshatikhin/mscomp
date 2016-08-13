@@ -14,3 +14,5 @@ module.system=haste
 strip_root=true
 module.file_ext=.js
 module.file_ext=.css
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
