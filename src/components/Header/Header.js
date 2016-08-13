@@ -1,12 +1,14 @@
-const styles = require("./Header.css");
-const image = require("./images/logo_m.png");
+/* @flow */
+import styles from "./Header.css";
+import image from "./images/logo_m.png";
 
 import Menu from "../Menu/Menu";
 import {Link} from "react-router";
 import {Component} from "react";
 
 export default class Layout extends Component {
-    constructor(props) {
+    
+    constructor(props: any) {
         super(props);
     }
 

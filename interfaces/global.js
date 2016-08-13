@@ -10,6 +10,10 @@ declare module 'flux/utils' {
     declare var Container: any;
 }
 
+declare module 'react-router' {
+    declare var Link: any;
+}
+
 declare module 'react-document-meta' {
     declare class DocumentMeta extends React.Component {}
     declare var exports: Class<DocumentMeta>;
