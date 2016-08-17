@@ -1,9 +1,9 @@
 [include]
-/src/**/*.js
-node_modules/flux/flow/include
+src
+../node_modules/
 
 [ignore]
-.*/node_modules/
+.*/node_modules
 
 [libs]
 interfaces/
@@ -11,7 +11,6 @@ interfaces/
 [options]
 module.name_mapper='.*\(.css\)' -> 'CSSModule'
 module.name_mapper='.*\(.png\)' -> 'CSSModule'
-module.system=haste
 strip_root=true
 module.file_ext=.js
 module.file_ext=.css
