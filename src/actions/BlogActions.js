@@ -3,7 +3,7 @@
 import AppDispatcher from "../dispatcher/AppDispatcher";
 import Constants from "../constants/Constants";
 
-class BlogStatic {    
+class BlogStatic {
     getBlog(site: string) {
         fetch(`https://public-api.wordpress.com/rest/v1.1/sites/${site}/posts/`)
             .then(response => response.json())
