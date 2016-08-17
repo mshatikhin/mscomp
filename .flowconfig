@@ -1,12 +1,11 @@
 [include]
-src
-../node_modules/
+./src/**/*.js
 
 [ignore]
 .*/node_modules
 
 [libs]
-interfaces/
+./interfaces/
 
 [options]
 module.name_mapper='.*\(.css\)' -> 'CSSModule'
