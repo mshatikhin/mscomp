@@ -41,7 +41,7 @@ var plugins = [
     new webpack.HotModuleReplacementPlugin()
 ];
 
-var entry = ["./app/AppStart.js", "webpack/hot/only-dev-server", "webpack-dev-server/client?" + devUrl];
+var entry = ["./App/AppStart.js", "webpack/hot/only-dev-server", "webpack-dev-server/client?" + devUrl];
 
 var devServer = {
     host: "localhost",

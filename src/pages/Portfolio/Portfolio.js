@@ -1,7 +1,6 @@
 ﻿import styles from "./Portfolio.css";
 import {Container} from "flux/utils";
 import DocumentMeta from "react-document-meta";
-import {Paper} from "material-ui";
 import {browserHistory} from "react-router";
 import AlbumsStore from "../../stores/AlbumsStore";
 import {Component} from "react";
@@ -42,7 +41,7 @@ class PortfolioContainer extends Component {
                 <DocumentMeta {...meta} />
                 {this.state.albums != null && this.state.albums.map((album) => {
                     var additionalClass = (album.primary_photo_extras.width_z - album.primary_photo_extras.height_z) > 0 ? styles.horizontalImage : styles.verticalImage;
-                    return <Paper zDepth={1}
+                    return <div
                         key={album.id}
                         className={styles.card}
                         title="Перейти в альбом"
@@ -55,7 +54,7 @@ class PortfolioContainer extends Component {
                             src={album.primary_photo_extras.url_z}
                             width={album.primary_photo_extras.width_z}
                             height={album.primary_photo_extras.height_z}/>
-                    </Paper>
+                    </div>
                 }) }
             </div>
         );

@@ -2,7 +2,6 @@
 import {Container} from "flux/utils";
 import DocumentMeta from "react-document-meta";
 import {Link} from "react-router";
-import {Paper} from "material-ui";
 import PhotosStore from "../../stores/PhotosStore";
 import PortfolioActions from "../../actions/PortfolioActions";
 import {Component} from "react";
@@ -31,10 +30,6 @@ class PhotosContainer extends Component {
     }
 
     render() {
-        const style = {
-            padding: 30
-        };
-
         const meta = {
             title: 'Портфолио Михаила Шатихина альбом ' + this.props.photoSetId,
             description: 'Добро пожаловать в портфолио Михаила Шатихина',
@@ -56,11 +51,11 @@ class PhotosContainer extends Component {
                     </Link>
                 </div>
                 <div>
-                    <Paper zDepth={1} style={style}>
+                    <div>
                         {this.state.photos.map((photoUrl, index) => {
                             return <img key={index} className={styles.mainImage} src={photoUrl}/>
                         }) }
-                    </Paper>
+                    </div>
                 </div>
                 <div className={styles.backWrap}>
                     <Link to="/photos" className={styles.back}>

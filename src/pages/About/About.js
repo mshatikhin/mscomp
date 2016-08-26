@@ -1,6 +1,4 @@
 const styles = require("./About.css");
-const me1 = require("./images/1.jpg");
-import {Paper} from "material-ui";
 import {Component} from "react";
 
 export default class About extends Component {
@@ -9,15 +7,11 @@ export default class About extends Component {
     }
 
     render() {
-        const style = {
-            padding: 30,
-            marginBottom: 50
-        };
         return (
             <div className={styles.about}>
-                <Paper zDepth={1} style={style}>
+                <div className={styles.card}>
                     <h1>Обо мне</h1>
-                    <img src={me1} width="300" height="300"/>
+                    <img src={require("./images/1.jpg")} width="300" height="300"/>
                     <article>
                         <p>
                             Меня зовут Михаил, по профессии я программист, в основном занимаюсь frontend разработкой в
@@ -53,7 +47,7 @@ export default class About extends Component {
                             </ul>
                         </div>
                     </article>
-                </Paper>
+                </div>
             </div>
         );
     }

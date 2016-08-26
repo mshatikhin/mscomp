@@ -5,8 +5,7 @@
     max-width: 100%;
 }
 
-.main img,
-.main iframe {
+.main img, .main iframe {
     max-width: 100% !important;
 }
 
@@ -38,4 +37,17 @@
 
 .link:hover {
     cursor: pointer;
+}
+
+.card {
+    padding: 30;
+    margin-bottom: 30;
+    color: rgba(0, 0, 0, .870588);
+    background-color: rgb(255, 255, 255);
+    transition: all 450ms cubic-bezier(.23, 1, .32, 1) 0ms;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgba(0, 0, 0, .117647) 0 1px 6px, rgba(0, 0, 0, .117647) 0 1px 4px;
+    border-radius: 2px;
 }

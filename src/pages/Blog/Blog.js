@@ -3,7 +3,6 @@
 ﻿import styles from "./Blog.css";
 import {Container} from "flux/utils";
 import DocumentMeta from "react-document-meta";
-import Paper from "material-ui/Paper";
 import BlogStore from "../../stores/BlogStore";
 import {Component} from "react";
 
@@ -35,11 +34,6 @@ class BlogContainer extends Component {
     };
 
     render() {
-        const style = {
-            padding: 30,
-            marginBottom: 30
-        };
-
         const meta = {
             title: 'Блог Михаила Шатихина',
             description: 'Добро пожаловать в блог Михаила Шатихина',
@@ -58,12 +52,12 @@ class BlogContainer extends Component {
                 {this.state.posts != null &&
                     <ul className={styles.posts}>
                         {this.state.posts.map(p => <li key={p.ID} className={styles.postsLink}>
-                            <Paper zDepth={1} style={style}>
+                            <div className={styles.card}>
                                 <a href={`/blog/${p.ID}`} className={styles.link}>
                                     <header className={styles.postHeader}>{p.title}</header>
                                     <div dangerouslySetInnerHTML={this.createMarkup(p.excerpt + "<span>Читать далее...</span>")  }></div>
                                 </a>
-                            </Paper>
+                            </div>
                         </li>) }
                     </ul>
                 }

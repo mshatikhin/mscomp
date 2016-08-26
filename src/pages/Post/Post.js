@@ -1,7 +1,6 @@
 ﻿import styles from "./Post.css";
 import {Container} from "flux/utils";
 import DocumentMeta from "react-document-meta";
-import {Paper} from "material-ui";
 import {Link} from "react-router";
 import BlogStore from "../../stores/BlogStore";
 import {Component} from "react";
@@ -30,10 +29,6 @@ class PostContainer extends Component {
     };
 
     render() {
-        const style = {
-            padding: 30
-        };
-
         const meta = this.state.post && {
             title: 'Портфолио Михаила Шатихина',
             description: 'Добро пожаловать в портфолио Михаила Шатихина',
@@ -45,7 +40,7 @@ class PostContainer extends Component {
                 }
             }
         };
-        
+
         return (
             this.state.post && <div className={styles.main}>
                 <DocumentMeta {...meta} />
@@ -54,10 +49,10 @@ class PostContainer extends Component {
                         ВЕРНУТЬСЯ В БЛОГ
                     </Link>
                 </div>
-                <Paper zDepth={1} style={style}>
+                <div className={styles.card}>
                     <h1>{this.state.post.title}</h1>
                     <div dangerouslySetInnerHTML={this.createMarkup(this.state.post.content) }></div>
-                </Paper>
+                </div>
                 <div className={styles.backWrap}>
                     <Link to="/blog" className={styles.back}>
                         ВЕРНУТЬСЯ В БЛОГ

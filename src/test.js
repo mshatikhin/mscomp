@@ -1,3 +1,3 @@
 /* @flow */
 
-var s: number = "123";
+//var s: number = "123";

@@ -3,7 +3,7 @@ import Layout from "../components/Layout/Layout";
 import Portfolio from "../pages/Portfolio/Portfolio";
 import Photos from "../pages/Photos/Photos";
 import Main from "../pages/Main/Main";
-import Blog from "../pages/Blog/Blog";
+import Blog from "../pages/Blog";
 import Post from "../pages/Post/Post";
 import NotFound from "../components/NotFound/NotFound";
 import About from "../pages/About/About";

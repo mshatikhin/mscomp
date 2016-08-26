@@ -39,7 +39,7 @@ var plugins = [
     })
 ];
 
-var entry = ["./app/AppStart.js"];
+var entry = ["./App/AppStart.js"];
 
 var loaders = [
     {
