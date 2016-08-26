@@ -37,4 +37,3 @@ export default (
         <Route path="*" component={ NotFound }/>
     </Route>
 );
-
