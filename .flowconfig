@@ -23,5 +23,6 @@ suppress_comment=.*\\$FlowIssue.*
 
 module.file_ext=.js
 module.file_ext=.jsx
+
 module.name_mapper='.*\(.css\)' -> 'CSSModule'
 module.name_mapper='.*\(.png\)' -> 'StringStub'

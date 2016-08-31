@@ -29,8 +29,8 @@ let loadPhotos = (ctx) => {
 export default (
     <Route path="/" component={ Layout }>
         <IndexRedirect to="photos"/>
-        <Route path="blog" component={ Blog } onEnter={ loadBlog }/>
-        <Route path="blog/:id" component={ Post } onEnter={ loadPost }/>
+        {/* <Route path="blog" component={ Blog } onEnter={ loadBlog }/>
+        <Route path="blog/:id" component={ Post } onEnter={ loadPost }/> */}
         <Route path="about" component={ About }/>
         <Route path="photos" component={ Portfolio } onEnter={ loadAlbums }/>
         <Route path="photos/:id" component={ Photos }  onEnter={ loadPhotos }/>

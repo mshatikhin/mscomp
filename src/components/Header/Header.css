@@ -1,26 +1,22 @@
 .header {
-    position: relative;
     display: block;
     height: auto;
     width: 100%;
     max-width: 100%;
-    padding: 0;
-    margin: 0 0 20px 0;
+    margin: 40px 0 40px 0;
 }
 
 .headerWrapper {
-    position: relative;
-    padding: 50px 0 90px 0;
     width: 960px;
     max-width: 100%;
-    text-align: left;
+    text-align: center;
     margin: 0 auto;
 }
 
 .menu {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .title {
@@ -30,16 +26,12 @@
 }
 
 .logoLink {
-    position: absolute;
-    display: inline-block;
-    left: 0;
 }
 
 .logo {
     display: inline-block;
     border: none;
     outline: none;
-    width: 50px;
 }
 
 @media screen and (max-width: 950px) {
@@ -52,8 +44,8 @@
     }
     .logo {
         display: block;
-        width: 100px;
-        margin: 0 auto;
+        max-width: 100%;
+        margin: 0 auto 20px auto;
     }
     .title {
         margin: 10px 0 25px 0;

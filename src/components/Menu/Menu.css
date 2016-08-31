@@ -1,8 +1,7 @@
 .wrap {
     display: block;
     width: 100%;
-    margin: 0 auto 15px auto;
-    text-align: right;
+    margin: 35px auto 15px auto;
 }
 
 .link {
@@ -18,7 +17,7 @@
 
 .activeLink {
     color: #000;
-    box-shadow: 0px 1px 0px red;
+    box-shadow: 0 1px 0 red;
 }
 
 @media screen and (max-width: 950px) {
