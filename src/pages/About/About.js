@@ -39,9 +39,9 @@ export default class About extends Component {
                         <div>
                             Если желаете со мной поработать, сообщите мне:
                             <ul className={styles.contactList}>
-                                <li>vk: <a href="//vk.me/id2069565">Михаил Шатихин</a></li>
-                                <li>facebook: <a href="//facebook.com/mshatikhin">Михаил Шатихин</a></li>
-                                <li>instagram: <a href="//instagram.com/mshatikhin.photo">Михаил Шатихин</a></li>
+                                <li>vk: <a href="//vk.me/id2069565">Mikhail Shatikhin</a></li>
+                                <li>facebook: <a href="//facebook.com/mshatikhin">Mikhail Shatikhin</a></li>
+                                <li>instagram: <a href="//instagram.com/mshatikhin.photo">Mikhail Shatikhin</a></li>
                                 <li>gmail: <a href="mailto:mshatikhin@gmail.com">mshatikhin@gmail.com</a></li>
                                 <li>phone/whatsApp/telegram.: +7(912)043-98-27</li>
                             </ul>

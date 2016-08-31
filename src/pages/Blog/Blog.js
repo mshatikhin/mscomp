@@ -35,13 +35,13 @@ class BlogContainer extends Component {
 
     render() {
         const meta = {
-            title: 'Блог Михаила Шатихина',
-            description: 'Добро пожаловать в блог Михаила Шатихина',
+            title: 'Блог Mikhail Shatikhin',
+            description: 'Добро пожаловать в блог Mikhail Shatikhin',
             canonical: 'http://mshatikhin.com/blog',
             meta: {
                 charset: 'utf-8',
                 name: {
-                    keywords: 'михаил шатихин,блог,путешествия,фотографии,программирование'
+                    keywords: 'Mikhail Shatikhin,блог,путешествия,фотографии,программирование'
                 }
             }
         };

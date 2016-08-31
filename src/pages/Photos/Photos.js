@@ -31,13 +31,13 @@ class PhotosContainer extends Component {
 
     render() {
         const meta = {
-            title: 'Портфолио Михаила Шатихина альбом ' + this.props.photoSetId,
-            description: 'Добро пожаловать в портфолио Михаила Шатихина',
+            title: 'Портфолио Mikhail Shatikhin альбом ' + this.props.photoSetId,
+            description: 'Добро пожаловать в портфолио Mikhail Shatikhin',
             canonical: 'http://mshatikhin.com/photos/' + this.props.photoSetId,
             meta: {
                 charset: 'utf-8',
                 name: {
-                    keywords: 'михаил шатихин,блог,путешествия,фотографии,программирование'
+                    keywords: 'Mikhail Shatikhin,блог,путешествия,фотографии,программирование'
                 }
             }
         };

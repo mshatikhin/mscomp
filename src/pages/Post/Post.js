@@ -30,13 +30,13 @@ class PostContainer extends Component {
 
     render() {
         const meta = this.state.post && {
-            title: 'Портфолио Михаила Шатихина',
-            description: 'Добро пожаловать в портфолио Михаила Шатихина',
+            title: 'Портфолио Mikhail Shatikhin',
+            description: 'Добро пожаловать в портфолио Mikhail Shatikhin',
             canonical: 'http://mshatikhin.com/post' + this.state.post.ID,
             meta: {
                 charset: 'utf-8',
                 name: {
-                    keywords: 'михаил шатихин,блог,путешествия,фотографии,программирование'
+                    keywords: 'Mikhail Shatikhin,блог,путешествия,фотографии,программирование'
                 }
             }
         };

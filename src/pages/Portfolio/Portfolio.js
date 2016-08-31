@@ -26,13 +26,13 @@ class PortfolioContainer extends Component {
 
     render() {
         const meta = {
-            title: 'Портфолио Михаила Шатихина',
-            description: 'Добро пожаловать в портфолио Михаила Шатихина',
+            title: 'Портфолио Mikhail Shatikhin',
+            description: 'Добро пожаловать в портфолио Mikhail Shatikhin',
             canonical: 'http://mshatikhin.com/photos',
             meta: {
                 charset: 'utf-8',
                 name: {
-                    keywords: 'михаил шатихин,блог,путешествия,фотографии,программирование'
+                    keywords: 'Mikhail Shatikhin,блог,путешествия,фотографии,программирование'
                 }
             }
         };
