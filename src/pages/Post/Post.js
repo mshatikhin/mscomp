@@ -46,7 +46,7 @@ class PostContainer extends Component {
                 <DocumentMeta {...meta} />
                 <div className={styles.backWrap}>
                     <Link to="/blog" className={styles.back}>
-                        ВЕРНУТЬСЯ В БЛОГ
+                        BACK TO BLOG
                     </Link>
                 </div>
                 <div className={styles.card}>
@@ -55,7 +55,7 @@ class PostContainer extends Component {
                 </div>
                 <div className={styles.backWrap}>
                     <Link to="/blog" className={styles.back}>
-                        ВЕРНУТЬСЯ В БЛОГ
+                        BACK TO BLOG
                     </Link>
                 </div>
             </div>

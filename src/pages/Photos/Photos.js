@@ -47,7 +47,7 @@ class PhotosContainer extends Component {
                 <DocumentMeta {...meta} />
                 <div className={styles.backWrap}>
                     <Link to="/photos" className={styles.back}>
-                        ВЕРНУТЬСЯ В ПОРТФОЛИО
+                        BACK TO PORTFOLIO
                     </Link>
                 </div>
                 <div>
@@ -59,7 +59,7 @@ class PhotosContainer extends Component {
                 </div>
                 <div className={styles.backWrap}>
                     <Link to="/photos" className={styles.back}>
-                        ВЕРНУТЬСЯ В ПОРТФОЛИО
+                        BACK TO PORTFOLIO
                     </Link>
                 </div>
             </div>
