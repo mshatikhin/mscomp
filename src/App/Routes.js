@@ -4,6 +4,7 @@ import Portfolio from "../pages/Portfolio/Portfolio";
 import Photos from "../pages/Photos/Photos";
 import Main from "../pages/Main/Main";
 import Blog from "../pages/Blog";
+import Home from "../pages/Home";
 import Post from "../pages/Post/Post";
 import NotFound from "../components/NotFound/NotFound";
 import About from "../pages/About/About";
@@ -31,6 +32,7 @@ export default (
         <IndexRedirect to="photos"/>
         {/* <Route path="blog" component={ Blog } onEnter={ loadBlog }/>
         <Route path="blog/:id" component={ Post } onEnter={ loadPost }/> */}
+        <Route path="home" component={ Home }/>
         <Route path="about" component={ About }/>
         <Route path="photos" component={ Portfolio } onEnter={ loadAlbums }/>
         <Route path="photos/:id" component={ Photos }  onEnter={ loadPhotos }/>

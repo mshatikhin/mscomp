@@ -10,6 +10,7 @@ export default class Menu extends Component {
     render() {
         return (
             <nav className={styles.wrap}>
+                <Link className={styles.link} activeClassName={styles.activeLink} to="/home">home</Link>
                 <Link className={styles.link} activeClassName={styles.activeLink} to="/photos">portfolio</Link>
                 <Link className={styles.link} activeClassName={styles.activeLink} to="/about">contact</Link>
             </nav>

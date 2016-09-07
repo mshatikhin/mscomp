@@ -1,27 +1,27 @@
 .header {
     display: block;
     height: auto;
-    width: 100%;
     max-width: 100%;
-    margin: 40px 0 40px 0;
+    padding: 40px 0 40px 0;
+    width: 100%;
 }
 
 .headerWrapper {
-    width: 960px;
+    margin: 0 auto;
     max-width: 100%;
     text-align: center;
-    margin: 0 auto;
+    width: 960px;
 }
 
 .menu {
+    margin: 0 auto;
     max-width: 100%;
     text-align: center;
-    margin: 0 auto;
 }
 
 .title {
-    display: block;
     color: #999;
+    display: block;
     font-weight: 300;
 }
 
@@ -29,23 +29,23 @@
 }
 
 .logo {
-    display: inline-block;
     border: none;
+    display: inline-block;
     outline: none;
 }
 
 @media screen and (max-width: 950px) {
     .headerWrapper {
-        text-align: center;
         padding-bottom: 0;
+        text-align: center;
     }
     .logoLink {
         position: initial;
     }
     .logo {
         display: block;
-        max-width: 100%;
         margin: 0 auto 20px auto;
+        max-width: 100%;
     }
     .title {
         margin: 10px 0 25px 0;

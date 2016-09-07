@@ -10,6 +10,14 @@
     "eof-newline": true,
     "leading-zero": false,
     "quotes": "double",
+    "sort-order": [
+        [ "$variable"],
+        [ "content", "position", "top", "bottom", "left", "right",
+          "float", "clear", "z-index",
+          "display", "box-sizing", "width", "height",
+          "margin", "padding", "...", "border",
+          "background", "color", "font", "opacity" ]
+    ],
     "sort-order-fallback": "abc",
     "space-before-colon": "",
     "space-after-colon": " ",

@@ -1,0 +1,14 @@
+.root {
+    margin: auto;
+    max-width: 1080px;
+}
+.imgWrap {
+    height: 666px;
+    max-width: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+.img {
+    border: none;
+    max-width: 100%;
+}
