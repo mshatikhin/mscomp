@@ -10,7 +10,6 @@ export default class About extends Component {
         return (
             <div className={styles.about}>
                 <div className={styles.card}>
-                    <h1>About me</h1>
                     <img src={require("./images/1.jpg")} width="300" height="300"/>
                     <article>
                         <p>

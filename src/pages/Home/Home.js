@@ -1,3 +1,5 @@
+// @flow
+
 const styles = require("./Home.css");
 import {Component} from "react";
 import Slider from 'react-slick';
@@ -22,35 +24,47 @@ const images = [
   require("./images/17.jpg"),
   require("./images/18.jpg"),
   require("./images/19.jpg"),
-  require("./images/20.jpg")
+  require("./images/20.jpg"),
+  require("./images/21.jpg"),
 ]
 
 function getRandomArbitary(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+const Landing = () => <div className={styles.landing}>
+  <div className={styles.wrapper}>
+    <h2>Желаете примерить на себе интересный образ или просто замечательных фотографий? Записывайтесь на фотосессию!</h2>
+    <div className={styles.center}>
+      <a target="blank" className={styles.btnRequest} href="//vk.me/id2069565">Хочу фотографироваться!</a>
+    </div>
+  </div>
+</div>
 
 export default class Home extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
     }
 
     render() {
-      var settings = {
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            initialSlide: getRandomArbitary(1, images.length),
-            arrows: false
+          const settings = {
+              infinite: true,
+              speed: 500,
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              initialSlide: getRandomArbitary(1, images.length)
           };
+
           return (
             <div className={styles.root}>
-                <Slider {...settings}>
-                  {images.map(img=> <div className={styles.imgWrap}>
-                    <img src={img} className={styles.img} />
-                  </div>)}
-                </Slider>
+                <div className={styles.wrapper}>
+                  <Slider {...settings}>
+                    {images.map(img=> <div className={styles.imgWrap}>
+                      <img src={img} className={styles.img} />
+                    </div>)}
+                  </Slider>
+                </div>
+                <Landing />
             </div>
           );
       }

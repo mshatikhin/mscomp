@@ -29,7 +29,7 @@ let loadPhotos = (ctx) => {
 
 export default (
     <Route path="/" component={ Layout }>
-        <IndexRedirect to="photos"/>
+        <IndexRedirect to="home"/>
         {/* <Route path="blog" component={ Blog } onEnter={ loadBlog }/>
         <Route path="blog/:id" component={ Post } onEnter={ loadPost }/> */}
         <Route path="home" component={ Home }/>
