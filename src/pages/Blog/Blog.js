@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 
 ﻿import styles from "./Blog.css";
 import {Container} from "flux/utils";
@@ -10,7 +10,7 @@ class BlogContainer extends Component {
 
     state: {
       posts: []
-    }
+    };
 
     static getStores() {
         return [BlogStore];
@@ -55,7 +55,9 @@ class BlogContainer extends Component {
                             <div className={styles.card}>
                                 <a href={`/blog/${p.ID}`} className={styles.link}>
                                     <header className={styles.postHeader}>{p.title}</header>
-                                    <div dangerouslySetInnerHTML={this.createMarkup(p.excerpt + "<span>Читать далее...</span>")  }></div>
+                                    <div dangerouslySetInnerHTML={this.createMarkup(p.excerpt +
+                                    "<span class='"+styles.links+"'>Читать далее...</span>")  }>
+                                    </div>
                                 </a>
                             </div>
                         </li>) }

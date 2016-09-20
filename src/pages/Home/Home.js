@@ -37,7 +37,7 @@ const Landing = () => <div className={styles.landing}>
         <h2>
             Желаете примерить на себе интересный образ или просто замечательных фотографий? Записывайтесь на фотосессию!</h2>
         <div className={styles.center}>
-            <a target="blank" className={styles.btnRequest} href="//vk.me/id2069565">Хочу фотографироваться!</a>
+            <a target="blank" className={styles.btnRequest} href="//vk.me/id2069565">Записаться!</a>
         </div>
     </div>
 </div>;
