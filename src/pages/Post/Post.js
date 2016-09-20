@@ -1,17 +1,24 @@
-﻿import styles from "./Post.css";
+﻿// @flow
+
+import React, {Component} from "react";
+import styles from "./Post.css";
 import {Container} from "flux/utils";
 import DocumentMeta from "react-document-meta";
 import {Link} from "react-router";
 import BlogStore from "../../stores/BlogStore";
-import {Component} from "react";
+
+type IState = {
+    post: any;
+}
 
 class PostContainer extends Component {
+    state: IState;
 
     static getStores() {
         return [BlogStore];
     }
 
-    static calculateState(prevState) {
+    static calculateState() {
         return {
             post: BlogStore.getPost()
         };
@@ -30,9 +37,9 @@ class PostContainer extends Component {
 
     render() {
         const meta = this.state.post && {
-            title: 'Портфолио Mikhail Shatikhin',
-            description: 'Добро пожаловать в портфолио Mikhail Shatikhin',
-            canonical: 'http://mshatikhin.com/post' + this.state.post.ID,
+            title: 'Блог Mikhail Shatikhin - '+ this.state.post.title,
+            description: 'Добро пожаловать в блог Mikhail Shatikhin',
+            canonical: 'http://mshatikhin.com/blog/' + this.state.post.ID,
             meta: {
                 charset: 'utf-8',
                 name: {

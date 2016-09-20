@@ -1,5 +1,5 @@
-﻿const styles = require("./NotFound.css");
-import {Component} from "react";
+﻿import React, {Component} from "react";
+import styles from "./NotFound.css";
 
 export default class NotFound extends Component {
     constructor(props) {

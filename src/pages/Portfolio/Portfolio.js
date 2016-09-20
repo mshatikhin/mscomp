@@ -1,17 +1,24 @@
-﻿import styles from "./Portfolio.css";
+﻿// @flow
+
+import React, {Component} from "react";
+import styles from "./Portfolio.css";
 import {Container} from "flux/utils";
 import DocumentMeta from "react-document-meta";
 import {browserHistory} from "react-router";
 import AlbumsStore from "../../stores/AlbumsStore";
-import {Component} from "react";
+
+type IState = {
+    albums: any[];
+}
 
 class PortfolioContainer extends Component {
+    state: IState;
 
     static getStores() {
         return [AlbumsStore];
     }
 
-    static calculateState(prevState) {
+    static calculateState() {
         return {
             albums: AlbumsStore.getState()
         };
@@ -40,7 +47,7 @@ class PortfolioContainer extends Component {
             <div className={styles.main}>
                 <DocumentMeta {...meta} />
                 {this.state.albums != null && this.state.albums.map((album) => {
-                    var additionalClass = (album.primary_photo_extras.width_z - album.primary_photo_extras.height_z) > 0 ? styles.horizontalImage : styles.verticalImage;
+                    const additionalClass = (album.primary_photo_extras.width_z - album.primary_photo_extras.height_z) > 0 ? styles.horizontalImage : styles.verticalImage;
                     return <div
                         key={album.id}
                         className={styles.card}

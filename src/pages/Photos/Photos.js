@@ -1,18 +1,25 @@
-﻿import styles from "./Photos.css";
+﻿// @flow
+
+import React, {Component} from "react";
+import styles from "./Photos.css";
 import {Container} from "flux/utils";
 import DocumentMeta from "react-document-meta";
 import {Link} from "react-router";
 import PhotosStore from "../../stores/PhotosStore";
 import PortfolioActions from "../../actions/PortfolioActions";
-import {Component} from "react";
+
+type IState = {
+    photos: any[];
+}
 
 class PhotosContainer extends Component {
+    state: IState;
 
     static getStores() {
         return [PhotosStore];
     }
 
-    static calculateState(prevState) {
+    static calculateState() {
         return {
             photos: PhotosStore.getState()
         };

@@ -1,4 +1,5 @@
-/* @flow */
+// @flow
+
 import styles from "./Header.css";
 import image from "./images/MIKHAIL SHATIKHIN.png";
 

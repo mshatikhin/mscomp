@@ -1,6 +1,6 @@
-const styles = require("./Menu.css");
+import React, {Component} from "react";
+import styles from "./Menu.css";
 import { Link } from "react-router";
-import {Component} from "react";
 
 export default class Menu extends Component {
     constructor(props) {

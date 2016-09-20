@@ -1,16 +1,24 @@
 // @flow
 
+import React, {Component} from "react";
 ﻿import styles from "./Blog.css";
 import {Container} from "flux/utils";
 import DocumentMeta from "react-document-meta";
 import BlogStore from "../../stores/BlogStore";
-import {Component} from "react";
+
+type IState = {
+    posts: any[];
+}
 
 class BlogContainer extends Component {
+    state: IState;
 
-    state: {
-      posts: []
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            posts: BlogStore.getInitialState()
+        }
+    }
 
     static getStores() {
         return [BlogStore];
@@ -20,13 +28,6 @@ class BlogContainer extends Component {
         return {
             posts: BlogStore.getState()
         };
-    }
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            posts: BlogStore.getInitialState()
-        }
     }
 
     createMarkup(content) {

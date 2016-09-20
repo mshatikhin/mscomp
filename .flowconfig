@@ -5,7 +5,6 @@
 .*/node_modules/react/.*
 .*/node_modules/fbjs/lib/.*
 .*/node_modules/jest-cli/.*
-.*/node_modules/flux/.*
 .*/node_modules/react-tap-event-plugin/.*
 .*/node_modules/react-side-effect/.*
 .*/interfaces/.*
@@ -22,8 +21,12 @@ munge_underscores=true
 suppress_comment=.*\\$FlowIssue.*
 
 module.file_ext=.js
-module.file_ext=.jsx
+module.file_ext=.css
+module.file_ext=.jpg
+module.file_ext=.png
 
 module.name_mapper='.*\(.css\)' -> 'CSSModule'
 module.name_mapper='.*\(.png\)' -> 'StringStub'
 module.name_mapper='.*\(.jpg\)' -> 'StringStub'
+
+strip_root=true

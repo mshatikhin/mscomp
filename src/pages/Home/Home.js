@@ -28,6 +28,8 @@ const images = [
     require("./images/21.jpg"),
 ];
 
+const bestImages = [ 0, 1, 7, 9, 14, 15, 16, 18 ];
+
 function getRandomArbitary(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -48,19 +50,20 @@ export default class Home extends Component {
     }
 
     render() {
+        const initSlide = bestImages[getRandomArbitary(1, bestImages.length)];
         const settings = {
             infinite: true,
             speed: 500,
             slidesToShow: 1,
             slidesToScroll: 1,
-            initialSlide: getRandomArbitary(1, images.length)
+            initialSlide: initSlide
         };
 
         return (
             <div className={styles.root}>
                 <div className={styles.wrapper}>
                     <Slider {...settings}>
-                        {images.map(img=> <div className={styles.imgWrap}>
+                        {images.map(( img, index ) => <div key={index} className={styles.imgWrap}>
                             <img src={img} className={styles.img}/>
                         </div>)}
                     </Slider>
