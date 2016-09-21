@@ -1,7 +1,7 @@
 .main {
     display: block;
     margin: auto;
-    width: 960px;
+    width: 1465px;
     max-width: 100%;
 }
 
@@ -41,6 +41,10 @@
     height: 105px;
 }
 
+.card:nth-child(3n) {
+    margin-right: 0;
+}
+
 .meta {
     text-align: left;
     box-sizing: border-box;
@@ -74,16 +78,6 @@
 
 .verticalImage {
     margin: -15% 0 0 0;
-}
-
-@media screen and (max-width: 1920px) {
-    .main {
-        width: 1465px;
-    }
-
-    .card:nth-child(3n) {
-        margin-right: 0;
-    }
 }
 
 @media screen and (max-width: 1500px) {

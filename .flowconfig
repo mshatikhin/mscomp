@@ -5,28 +5,19 @@
 .*/node_modules/react/.*
 .*/node_modules/fbjs/lib/.*
 .*/node_modules/jest-cli/.*
-.*/node_modules/react-tap-event-plugin/.*
-.*/node_modules/react-side-effect/.*
-.*/interfaces/.*
 
 [libs]
-interfaces
+interfaces/
 
 [options]
-esproposal.class_static_fields=enable
-esproposal.class_instance_fields=enable
-
-munge_underscores=true
-
-suppress_comment=.*\\$FlowIssue.*
+module.name_mapper='.*\(.css\)' -> 'CSSModule'
+module.name_mapper='.*\(.png\)' -> 'CSSModule'
+module.system=haste
+strip_root=true
 
 module.file_ext=.js
 module.file_ext=.css
-module.file_ext=.jpg
 module.file_ext=.png
 
-module.name_mapper='.*\(.css\)' -> 'CSSModule'
-module.name_mapper='.*\(.png\)' -> 'StringStub'
-module.name_mapper='.*\(.jpg\)' -> 'StringStub'
-
-strip_root=true
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
