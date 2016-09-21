@@ -27,6 +27,11 @@
     margin: 5px 0;
 }
 
+.postsLink:first-child {
+    padding-top: 0;
+    margin-top: 0;
+}
+
 .posts_link:hover {
     cursor: pointer;
 }
