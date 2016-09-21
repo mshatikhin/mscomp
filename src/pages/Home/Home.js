@@ -44,15 +44,26 @@ const Landing = () => <div className={styles.landing}>
     </div>
 </div>;
 
+type IState = {
+    showLanding: boolean;
+}
+
 export default class Home extends Component {
+    state: IState;
+
     constructor() {
         super();
+        this.state = {
+            showLanding: false
+        }
     }
 
     render() {
         const initSlide = bestImages[getRandomArbitary(1, bestImages.length)];
         const settings = {
             infinite: true,
+            autoplay: true,
+            autoplaySpeed: 4000,
             speed: 500,
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -64,12 +75,18 @@ export default class Home extends Component {
                 <div className={styles.wrapper}>
                     <Slider {...settings}>
                         {images.map(( img, index ) => <div key={index} className={styles.imgWrap}>
-                            <img src={img} className={styles.img}/>
+                            <img src={img} className={styles.img} onLoad={this.onLoad}/>
                         </div>)}
                     </Slider>
                 </div>
-                <Landing />
+                {this.state.showLanding && <Landing />}
             </div>
         );
+    }
+
+    onLoad = () => {
+        !this.state.showLanding && this.setState({
+            showLanding: true
+        })
     }
 }
