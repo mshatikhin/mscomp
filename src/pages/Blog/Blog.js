@@ -1,10 +1,11 @@
 // @flow
 
+import styles from "./Blog.css";
 import React, {Component} from "react";
-﻿import styles from "./Blog.css";
 import {Container} from "flux/utils";
 import DocumentMeta from "react-document-meta";
 import BlogStore from "../../stores/BlogStore";
+import Loader from "../../components/Loader";﻿
 
 type IState = {
     posts: any[];
@@ -24,14 +25,14 @@ class BlogContainer extends Component {
         return [BlogStore];
     }
 
-    static calculateState(prevState) {
+    static calculateState() {
         return {
             posts: BlogStore.getState()
         };
     }
 
     createMarkup(content) {
-        return { __html: content };
+        return {__html: content};
     };
 
     render() {
@@ -47,27 +48,31 @@ class BlogContainer extends Component {
             }
         };
 
+
         return (
             <div className={styles.main}>
                 <DocumentMeta {...meta} />
-                {this.state.posts != null &&
-                    <ul className={styles.posts}>
-                        {this.state.posts.map(p => <li key={p.ID} className={styles.postsLink}>
-                            <div className={styles.card}>
-                                <a href={`/blog/${p.ID}`} className={styles.link}>
-                                    <header className={styles.postHeader}>{p.title}</header>
-                                    <div dangerouslySetInnerHTML={this.createMarkup(p.excerpt +
-                                    "<span class='"+styles.links+"'>Читать далее...</span>")  }>
-                                    </div>
-                                </a>
-                            </div>
-                        </li>) }
-                    </ul>
-                }
+                {this.state.posts == null ? <Loader /> : this.renderPosts()}
             </div>
         );
     }
-}
 
+    renderPosts() {
+        return <ul className={styles.posts}>
+            {this.state.posts.map(p =>
+                <li key={p.ID} className={styles.postsLink}>
+                    <div className={styles.card}>
+                        <a href={`/blog/${p.ID}`} className={styles.link}>
+                            <header className={styles.postHeader}>{p.title}</header>
+                            <div dangerouslySetInnerHTML={this.createMarkup(p.excerpt +
+                                         "<span class='"+styles.links+"'>Читать далее...</span>")  }>
+                            </div>
+                        </a>
+                    </div>
+                </li>)
+            }
+        </ul>
+    }
+}
 const container = Container.create(BlogContainer);
 export default container;

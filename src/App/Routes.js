@@ -2,7 +2,6 @@
 import Layout from "../components/Layout/Layout";
 import Portfolio from "../pages/Portfolio/Portfolio";
 import Photos from "../pages/Photos/Photos";
-import Main from "../pages/Main/Main";
 import Blog from "../pages/Blog";
 import Home from "../pages/Home";
 import Post from "../pages/Post/Post";
@@ -27,12 +26,17 @@ let loadPhotos = (ctx) => {
     PortfolioActions.getPhotos("124274905@N03", "1173960c94df6700f0b57dccc50f0925", ctx.params.id);
 };
 
+let hot = () => {
+    loadAlbums();
+    loadBlog();
+};
+
 export default (
     <Route path="/" component={ Layout }>
         <IndexRedirect to="home"/>
         <Route path="blog" component={ Blog } onEnter={ loadBlog }/>
         <Route path="blog/:id" component={ Post } onEnter={ loadPost }/>
-        <Route path="home" component={ Home }/>
+        <Route path="home" component={ Home }  onEnter={ hot }/>
         <Route path="about" component={ About }/>
         <Route path="photos" component={ Portfolio } onEnter={ loadAlbums }/>
         <Route path="photos/:id" component={ Photos }  onEnter={ loadPhotos }/>
