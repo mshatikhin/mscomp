@@ -5,11 +5,17 @@ import React, {Component} from "react";
 import {Container} from "flux/utils";
 import DocumentMeta from "react-document-meta";
 import BlogStore from "../../stores/BlogStore";
-import Loader from "../../components/Loader";﻿
+import Loader from "../../components/Loader";
+﻿
 
 type IState = {
     posts: any[];
 }
+
+const randomProperty = (obj) => {
+    const keys = Object.keys(obj);
+    return obj[keys[keys.length * Math.random() << 0]];
+};
 
 class BlogContainer extends Component {
     state: IState;
@@ -48,7 +54,6 @@ class BlogContainer extends Component {
             }
         };
 
-
         return (
             <div className={styles.main}>
                 <DocumentMeta {...meta} />
@@ -63,9 +68,13 @@ class BlogContainer extends Component {
                 <li key={p.ID} className={styles.postsLink}>
                     <div className={styles.card}>
                         <a href={`/blog/${p.ID}`} className={styles.link}>
+                            {p.attachment_count > 0 && <div className={styles.cardImage}>
+                                <img src={randomProperty(p.attachments).thumbnails.medium} className={styles.img}/>
+                            </div>}
                             <header className={styles.postHeader}>{p.title}</header>
-                            <div dangerouslySetInnerHTML={this.createMarkup(p.excerpt +
-                                         "<span class='"+styles.links+"'>Читать далее...</span>")  }>
+                            <div className={styles.postWrap}>
+                                <div dangerouslySetInnerHTML={this.createMarkup(p.excerpt)}></div>
+                                <div className={styles.links}>Читать далее...</div>
                             </div>
                         </a>
                     </div>

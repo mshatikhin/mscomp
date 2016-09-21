@@ -37,6 +37,7 @@
 }
 
 .link {
+    display: block;
     color: #444;
 }
 
@@ -55,6 +56,35 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgba(0, 0, 0, .117647) 0 1px 6px, rgba(0, 0, 0, .117647) 0 1px 4px;
     border-radius: 2px;
+    overflow: hidden;
+}
+
+.cardImage {
+    float: left;
+    margin-right: 20px;
+    overflow: hidden;
+    width: 300px;
+}
+
+.cardImage:after{
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.postWrap {
+    margin-left: 320px;
+}
+
+.img {
+    width: auto;
+    max-height: 200px;
+    filter: grayscale(100%);
+    transition: .2s all ease-out;
+}
+
+.card:hover .img{
+    filter: grayscale(0%);
 }
 
 .links {
