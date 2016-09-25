@@ -1,5 +1,6 @@
 /* @flow */
 
+import 'whatwg-fetch';
 import AppDispatcher from "../dispatcher/AppDispatcher";
 import Constants from "../constants/Constants";
 

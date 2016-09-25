@@ -22,7 +22,8 @@
     "react-dom": "15.2.1",
     "react-router": "^2.6.0",
     "react-slick": "^0.13.6",
-    "react-tap-event-plugin": "1.0.0"
+    "react-tap-event-plugin": "1.0.0",
+    "whatwg-fetch": "^1.0.0"
   },
   "description": "Mikhail Shatikhin pet project",
   "devDependencies": {
