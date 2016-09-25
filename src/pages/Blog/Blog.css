@@ -90,3 +90,14 @@
 .links {
     color: #0d88ff;
 }
+
+@media screen and (max-width: 1000px) {
+  .cardImage{
+      float: none;
+      display: block;
+  }
+  
+  .postWrap{
+      margin-left: 0;
+  }
+}
