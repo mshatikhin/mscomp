@@ -12,7 +12,6 @@
     "flux-utils": "1.0.2-stop",
     "history": "^2.0.1",
     "immutable": "3.8.1",
-    "jquery": "^2.2.2",
     "keymirror": "0.1.1",
     "node-gyp": "3.4.0",
     "object-assign": "4.1.0",

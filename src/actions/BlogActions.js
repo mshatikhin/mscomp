@@ -1,6 +1,6 @@
 /* @flow */
 
-import 'whatwg-fetch';
+import "whatwg-fetch";
 import AppDispatcher from "../dispatcher/AppDispatcher";
 import Constants from "../constants/Constants";
 
@@ -28,5 +28,5 @@ class BlogStatic {
     }
 }
 
-var actions = new BlogStatic();
+const actions = new BlogStatic();
 export default actions;

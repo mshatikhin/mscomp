@@ -18,10 +18,6 @@ var plugins = [
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
         PRODUCTION: JSON.stringify(true)
     }),
-    new webpack.ProvidePlugin({
-        "$": "jquery",
-        "jquery": "jquery"
-    }),
     new webpack.optimize.DedupePlugin(),
     new ExtractTextPlugin("assets/[name].[contenthash].css", {
         allChunks: true
@@ -78,13 +74,12 @@ var config = {
     },
     module: {
         loaders: loaders,
-        noparse: [/\/node_modules\/(jquery|react)/]
+        noparse: [/\/node_modules\/(react)/]
     },
     postcss: function () {
         return [autoprefixer, precss];
     },
     externals: {
-        "jquery": "$",
         "react": "React",
         "react-dom": "ReactDOM"
     },
