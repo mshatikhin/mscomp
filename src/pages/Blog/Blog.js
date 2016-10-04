@@ -1,40 +1,30 @@
 // @flow
 
 import styles from "./Blog.css";
-import React, {Component} from "react";
-import {Container} from "flux/utils";
+import { connect } from "react-redux";
+import React, { Component, PropTypes } from "react";
 import DocumentMeta from "react-document-meta";
-import BlogStore from "../../stores/BlogStore";
 import Loader from "../../components/Loader";
-﻿
-
-type IState = {
-    posts: any[];
-}
+﻿import { blogRequest } from '../../redux/actions/blogActions';
 
 const randomProperty = (obj) => {
     const keys = Object.keys(obj);
     return obj[keys[keys.length * Math.random() << 0]];
 };
 
+const propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    posts: PropTypes.any
+};
+
 class BlogContainer extends Component {
-    state: IState;
 
     constructor(props) {
         super(props);
-        this.state = {
-            posts: BlogStore.getInitialState()
-        }
     }
 
-    static getStores() {
-        return [BlogStore];
-    }
-
-    static calculateState() {
-        return {
-            posts: BlogStore.getState()
-        };
+    componentDidMount(){
+        this.props.dispatch(blogRequest("mshatikhin.wordpress.com"));
     }
 
     createMarkup(content) {
@@ -57,14 +47,14 @@ class BlogContainer extends Component {
         return (
             <div className={styles.main}>
                 <DocumentMeta {...meta} />
-                {this.state.posts == null ? <Loader /> : this.renderPosts()}
+                {this.props.posts.length === 0 ? <Loader /> : this.renderPosts()}
             </div>
         );
     }
 
     renderPosts() {
         return <ul className={styles.posts}>
-            {this.state.posts.map(p =>
+            {this.props.posts.map(p =>
                 <li key={p.ID} className={styles.postsLink}>
                     <div className={styles.card}>
                         <a href={`/blog/${p.ID}`} className={styles.link}>
@@ -83,5 +73,11 @@ class BlogContainer extends Component {
         </ul>
     }
 }
-const container = Container.create(BlogContainer);
-export default container;
+
+BlogContainer.propTypes = propTypes;
+
+const mapStateToProps = (props) => {
+    const { posts } = props.blog;
+    return { posts };
+}
+export default connect(mapStateToProps)(BlogContainer);

@@ -4,9 +4,7 @@
 var keyMirror = require('keymirror');
 
 module.exports = keyMirror({
-    UPDATE_BLOG: null,
     UPDATE_ALBUMS: null,
     UPDATE_PHOTOS: null,
-    RESET_PHOTOS: null,
-    UPDATE_POST: null,
+    RESET_PHOTOS: null
 });
