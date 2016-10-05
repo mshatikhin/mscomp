@@ -1,11 +1,11 @@
 // @flow
 
+import React, { Component, PropTypes } from "react";
 import styles from "./Blog.css";
 import { connect } from "react-redux";
-import React, { Component, PropTypes } from "react";
-import DocumentMeta from "react-document-meta";
+﻿import { blogRequest } from "../../redux/actions/blogActions";
 import Loader from "../../components/Loader";
-﻿import { blogRequest } from '../../redux/actions/blogActions';
+import {WP_SITE} from "../../utils/util";
 
 const randomProperty = (obj) => {
     const keys = Object.keys(obj);
@@ -24,7 +24,7 @@ class BlogContainer extends Component {
     }
 
     componentDidMount(){
-        this.props.dispatch(blogRequest("mshatikhin.wordpress.com"));
+        this.props.dispatch(blogRequest(WP_SITE));
     }
 
     createMarkup(content) {
@@ -32,21 +32,8 @@ class BlogContainer extends Component {
     };
 
     render() {
-        const meta = {
-            title: 'Блог Mikhail Shatikhin',
-            description: 'Добро пожаловать в блог Mikhail Shatikhin',
-            canonical: 'http://mshatikhin.com/blog',
-            meta: {
-                charset: 'utf-8',
-                name: {
-                    keywords: 'Mikhail Shatikhin,блог,путешествия,фотографии,программирование'
-                }
-            }
-        };
-
         return (
             <div className={styles.main}>
-                <DocumentMeta {...meta} />
                 {this.props.posts.length === 0 ? <Loader /> : this.renderPosts()}
             </div>
         );
@@ -79,5 +66,5 @@ BlogContainer.propTypes = propTypes;
 const mapStateToProps = (props) => {
     const { posts } = props.blog;
     return { posts };
-}
+};
 export default connect(mapStateToProps)(BlogContainer);

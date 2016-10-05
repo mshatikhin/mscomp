@@ -3,11 +3,11 @@
 import React, { Component, PropTypes } from "react";
 import styles from "./Post.css";
 import {Container} from "flux/utils";
-import DocumentMeta from "react-document-meta";
 import { Link, withRouter } from "react-router";
 import { connect } from "react-redux";
 import { postRequest } from '../../redux/actions/postActions';
 import Loader from "../../components/Loader";
+import {WP_SITE} from "../../utils/util";
 
 const propTypes = {
     dispatch: PropTypes.func.isRequired,
@@ -22,7 +22,7 @@ class PostContainer extends Component {
     }
 
     componentDidMount(){
-        this.props.dispatch(postRequest("mshatikhin.wordpress.com", this.props.id));
+        this.props.dispatch(postRequest(WP_SITE, this.props.id));
     }
 
     createMarkup(content) {
@@ -31,21 +31,8 @@ class PostContainer extends Component {
 
     render() {
         const post = this.props.post;
-
-        const meta = post.content && {
-            title: 'Блог Mikhail Shatikhin - ' + post.title,
-            description: 'Добро пожаловать в блог Mikhail Shatikhin',
-            canonical: 'http://mshatikhin.com/blog/' + post.ID,
-            meta: {
-                charset: 'utf-8',
-                name: {
-                    keywords: 'Mikhail Shatikhin,блог,путешествия,фотографии,программирование'
-                }
-            }
-        };
         return (
             post.content == null ? <Loader /> : <div className={styles.main}>
-                <DocumentMeta {...meta} />
                 <div className={styles.backWrap}>
                     <Link to="/blog" className={styles.back}>
                         BACK TO BLOG
@@ -71,5 +58,5 @@ const mapStateToProps = (props, ownProps) => {
     const { post } = props;
     const { id } = ownProps.params;
     return { post, id };
-}
+};
 export default withRouter(connect(mapStateToProps)(PostContainer));

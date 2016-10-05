@@ -1,53 +1,32 @@
 ﻿// @flow
 
-import React, {Component} from "react";
+import React, {PropTypes, Component} from "react";
 import styles from "./Portfolio.css";
-import {Container} from "flux/utils";
-import DocumentMeta from "react-document-meta";
-import {browserHistory} from "react-router";
-import AlbumsStore from "../../stores/AlbumsStore";
+import {connect} from "react-redux";
+import {browserHistory, withRouter} from "react-router";
 import Loader from "../../components/Loader";
+import {albumsRequest} from "../../redux/actions/albumsActions";
+﻿import {FLICKR_USER_ID, FLICKR_API_KEY} from "../../utils/util";
 
-type IState = {
-    albums: any[];
-}
+const propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    albums: PropTypes.any
+};
 
 class PortfolioContainer extends Component {
-    state: IState;
-
-    static getStores() {
-        return [AlbumsStore];
-    }
-
-    static calculateState() {
-        return {
-            albums: AlbumsStore.getState()
-        };
-    }
 
     constructor(props) {
         super(props);
-        this.state = {
-            albums: AlbumsStore.getInitialState()
-        }
+    }
+
+    componentDidMount() {
+        this.props.dispatch(albumsRequest(FLICKR_USER_ID, FLICKR_API_KEY));
     }
 
     render() {
-        const meta = {
-            title: 'Портфолио Mikhail Shatikhin',
-            description: 'Добро пожаловать в портфолио Mikhail Shatikhin',
-            canonical: 'http://mshatikhin.com/photos',
-            meta: {
-                charset: 'utf-8',
-                name: {
-                    keywords: 'Mikhail Shatikhin,блог,путешествия,фотографии,программирование'
-                }
-            }
-        };
         return (
             <div className={styles.main}>
-                <DocumentMeta {...meta} />
-                {this.state.albums == null ? <Loader /> : this.state.albums.map((album) => {
+                {this.props.albums.length == 0 ? <Loader /> : this.props.albums.map((album) => {
                     const additionalClass = (album.primary_photo_extras.width_z - album.primary_photo_extras.height_z) > 0 ? styles.horizontalImage : styles.verticalImage;
                     return <div
                         key={album.id}
@@ -59,9 +38,9 @@ class PortfolioContainer extends Component {
                             <span className={styles.countPhotos}>{album.photos} photos</span>
                         </div>
                         <img className={styles.mainImage + " " + additionalClass}
-                            src={album.primary_photo_extras.url_z}
-                            width={album.primary_photo_extras.width_z}
-                            height={album.primary_photo_extras.height_z}/>
+                             src={album.primary_photo_extras.url_z}
+                             width={album.primary_photo_extras.width_z}
+                             height={album.primary_photo_extras.height_z}/>
                     </div>
                 }) }
             </div>
@@ -69,5 +48,10 @@ class PortfolioContainer extends Component {
     }
 }
 
-const container = Container.create(PortfolioContainer);
-export default container;
+PortfolioContainer.propTypes = propTypes;
+
+const mapStateToProps = (props) => {
+    const {albums} = props.portfolio;
+    return {albums};
+};
+export default withRouter(connect(mapStateToProps)(PortfolioContainer));

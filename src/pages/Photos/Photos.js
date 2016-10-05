@@ -1,68 +1,44 @@
 ﻿// @flow
 
-import React, {Component} from "react";
+import React, {PropTypes, Component} from "react";
 import styles from "./Photos.css";
-import {Container} from "flux/utils";
-import DocumentMeta from "react-document-meta";
-import {Link} from "react-router";
-import PhotosStore from "../../stores/PhotosStore";
-import PortfolioActions from "../../actions/PortfolioActions";
+import {connect} from "react-redux";
+import {Link, withRouter} from "react-router";
+import Loader from "../../components/Loader";
+import {photosRequest, updatePhotos} from "../../redux/actions/photosActions";
+﻿﻿import {FLICKR_USER_ID, FLICKR_API_KEY} from "../../utils/util";
 
-type IState = {
-    photos: any[];
-}
+const propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    photos: PropTypes.any
+};
 
 class PhotosContainer extends Component {
-    state: IState;
-
-    static getStores() {
-        return [PhotosStore];
-    }
-
-    static calculateState() {
-        return {
-            photos: PhotosStore.getState()
-        };
-    }
 
     constructor(props) {
         super(props);
-        this.state = {
-            photos: PhotosStore.getInitialState()
-        }
+    }
+
+    componentDidMount() {
+        this.props.dispatch(photosRequest(FLICKR_USER_ID, FLICKR_API_KEY, this.props.id));
     }
 
     componentWillUnmount() {
-        PortfolioActions.resetStore();
+        this.props.dispatch(updatePhotos([]));
     }
 
     render() {
-        const meta = {
-            title: 'Портфолио Mikhail Shatikhin альбом ' + this.props.photoSetId,
-            description: 'Добро пожаловать в портфолио Mikhail Shatikhin',
-            canonical: 'http://mshatikhin.com/photos/' + this.props.photoSetId,
-            meta: {
-                charset: 'utf-8',
-                name: {
-                    keywords: 'Mikhail Shatikhin,блог,путешествия,фотографии,программирование'
-                }
-            }
-        };
-
         return (
-            this.state.photos && <div className={styles.main}>
-                <DocumentMeta {...meta} />
+            this.props.photos.length == 0 ? <Loader /> : <div className={styles.main}>
                 <div className={styles.backWrap}>
                     <Link to="/photos" className={styles.back}>
                         BACK TO PORTFOLIO
                     </Link>
                 </div>
                 <div>
-                    <div>
-                        {this.state.photos.map((photoUrl, index) => {
-                            return <img key={index} className={styles.mainImage} src={photoUrl}/>
-                        }) }
-                    </div>
+                    {this.props.photos.map((photoUrl, index) => {
+                        return <img key={index} className={styles.mainImage} src={photoUrl}/>
+                    }) }
                 </div>
                 <div className={styles.backWrap}>
                     <Link to="/photos" className={styles.back}>
@@ -74,5 +50,11 @@ class PhotosContainer extends Component {
     }
 }
 
-const container = Container.create(PhotosContainer);
-export default container;
+PhotosContainer.propTypes = propTypes;
+
+const mapStateToProps = (props, ownProps) => {
+    const {id} = ownProps.params;
+    const {photos} = props.photos;
+    return {photos, id};
+};
+export default withRouter(connect(mapStateToProps)(PhotosContainer));
