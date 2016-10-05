@@ -1,6 +1,6 @@
 // @flow
 
-const styles = require("./Home.css");
+import styles from "./Home.css";
 import {Component} from "react";
 import Slider from "react-slick";
 

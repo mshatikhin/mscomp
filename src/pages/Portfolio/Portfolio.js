@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import {browserHistory, withRouter} from "react-router";
 import Loader from "../../components/Loader";
 import {albumsRequest} from "../../redux/actions/albumsActions";
-﻿import {FLICKR_USER_ID, FLICKR_API_KEY} from "../../utils/util";
+import {FLICKR_USER_ID, FLICKR_API_KEY} from "../../utils/util";
 
 const propTypes = {
     dispatch: PropTypes.func.isRequired,

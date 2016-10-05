@@ -3,7 +3,7 @@
 import React, { Component, PropTypes } from "react";
 import styles from "./Blog.css";
 import { connect } from "react-redux";
-﻿import { blogRequest } from "../../redux/actions/blogActions";
+import { blogRequest } from "../../redux/actions/blogActions";
 import Loader from "../../components/Loader";
 import {WP_SITE} from "../../utils/util";
 
