@@ -1,9 +1,9 @@
 // @flow
 
-import React, { Component, PropTypes } from "react";
+import React, {Component, PropTypes} from "react";
 import styles from "./Blog.css";
-import { connect } from "react-redux";
-import { blogRequest } from "../../redux/actions/blogActions";
+import {connect} from "react-redux";
+import {blogRequest} from "../../redux/actions/blogActions";
 import Loader from "../../components/Loader";
 import {WP_SITE} from "../../utils/util";
 
@@ -23,7 +23,7 @@ class BlogContainer extends Component {
         super(props);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.dispatch(blogRequest(WP_SITE));
     }
 
@@ -33,8 +33,8 @@ class BlogContainer extends Component {
 
     render() {
         return (
-            <div className={styles.main}>
-                {this.props.posts.length === 0 ? <Loader /> : this.renderPosts()}
+            this.props.posts.length === 0 ? <Loader /> : <div className={styles.main}>
+                {this.renderPosts()}
             </div>
         );
     }
@@ -46,7 +46,10 @@ class BlogContainer extends Component {
                     <div className={styles.card}>
                         <a href={`/blog/${p.ID}`} className={styles.link}>
                             {p.attachment_count > 0 && <div className={styles.cardImage}>
-                                <img src={randomProperty(p.attachments).thumbnails.medium} className={styles.img}/>
+                                <img src={randomProperty(p.attachments).thumbnails.medium}
+                                     className={styles.img}
+                                     width={300}
+                                />
                             </div>}
                             <header className={styles.postHeader}>{p.title}</header>
                             <div className={styles.postWrap}>
@@ -64,7 +67,7 @@ class BlogContainer extends Component {
 BlogContainer.propTypes = propTypes;
 
 const mapStateToProps = (props) => {
-    const { posts } = props.blog;
-    return { posts };
+    const {posts} = props.blog;
+    return {posts};
 };
 export default connect(mapStateToProps)(BlogContainer);
