@@ -68,7 +68,8 @@ export default class Home extends Component {
             speed: 500,
             slidesToShow: 1,
             slidesToScroll: 1,
-            initialSlide: initSlide
+            initialSlide: initSlide,
+            dots: true
         };
 
         return (
