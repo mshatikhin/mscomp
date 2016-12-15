@@ -9,6 +9,7 @@
     display: block;
     max-width: none;
     min-width: 455px;
+    object-fit: cover;
 }
 
 .album {
@@ -24,7 +25,7 @@
     cursor: pointer;
     overflow: hidden;
     width: 455px;
-    height: 400px;
+    height: 398px;
     margin-right: 50px;
     margin-bottom: 50px;
     color: rgba(0, 0, 0, .870588);

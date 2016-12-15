@@ -12,7 +12,9 @@ export default class About extends Component {
         return (
             <div className={styles.about}>
                 <div className={styles.card}>
-                    <img src={require("./images/1.jpg")} width="300" height="300"/>
+                    <div>
+                        <img src={require("./images/1.jpg")} width="300" height="300"/>
+                    </div>
                     <article>
                         <p>
                             Меня зовут Михаил, по профессии я программист, в основном занимаюсь frontend разработкой в
@@ -37,17 +39,17 @@ export default class About extends Component {
                             Я обожаю ощущение жизни, когда сердце бьётся по-настоящему, тебя обдувает ветер и ты
                             смотришь вдаль на бескрайние просторы природы.
                         </p>
-                        <div>
-                            Если желаете со мной поработать, сообщите мне:
-                            <ul className={styles.contactList}>
-                                <li>vk: <a href="//vk.me/id2069565">Mikhail Shatikhin</a></li>
-                                <li>facebook: <a href="//facebook.com/mshatikhin">Mikhail Shatikhin</a></li>
-                                <li>instagram: <a href="//instagram.com/mshatikhin.photo">Mikhail Shatikhin</a></li>
-                                <li>gmail: <a href="mailto:mshatikhin@gmail.com">mshatikhin@gmail.com</a></li>
-                                <li>phone/whatsApp/telegram.: +7(912)043-98-27</li>
-                            </ul>
-                        </div>
                     </article>
+                    <div className={styles.contacts}>
+                        Если желаете со мной поработать, сообщите мне:
+                        <ul className={styles.contactList}>
+                            <li>vk: <a href="//vk.me/id2069565">Mikhail Shatikhin</a></li>
+                            <li>fb: <a href="//facebook.com/mshatikhin">Mikhail Shatikhin</a></li>
+                            <li>ins: <a href="//instagram.com/mshatikhin.photo">Mikhail Shatikhin</a></li>
+                            <li>gm: <a href="mailto:mshatikhin@gmail.com">mshatikhin@gmail.com</a></li>
+                            <li>ph: +7(912)043-98-27</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         );
