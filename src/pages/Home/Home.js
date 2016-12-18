@@ -69,7 +69,8 @@ export default class Home extends Component {
             slidesToShow: 1,
             slidesToScroll: 1,
             initialSlide: initSlide,
-            dots: false
+            dots: false,
+            arrows: false
         };
 
         return (
