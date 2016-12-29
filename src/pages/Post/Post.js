@@ -2,7 +2,6 @@
 
 import React, { Component, PropTypes } from "react";
 import styles from "./Post.css";
-import {Container} from "flux/utils";
 import { Link, withRouter } from "react-router";
 import { connect } from "react-redux";
 import { postRequest } from '../../redux/actions/postActions';
