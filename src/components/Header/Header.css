@@ -19,19 +19,38 @@
     text-align: center;
 }
 
-.title {
-    color: #999;
-    display: block;
-    font-weight: 300;
-}
-
 .logoLink {
+    font-weight: 300;
+    font-family: 'Source Code Pro', monospace;
 }
 
-.logo {
-    border: none;
-    display: inline-block;
-    outline: none;
+.logoText {
+    font-size: 18px;
+    display: block;
+    color: #aaa;
+}
+
+.logoMainText {
+    display: block;
+    font-size: 30px;
+    color: #000;
+    letter-spacing: 1.2px;
+}
+
+.love {
+    color: red;
+    transition: .2s font ease;
+    animation: love infinite;
+    animation-play-state: running;
+}
+
+@keyframes love {
+    0% {
+        font-size: 14px;
+    }
+    100% {
+        font-size: 18px;
+    }
 }
 
 @media screen and (max-width: 950px) {
@@ -39,18 +58,7 @@
         padding-bottom: 0;
         text-align: center;
     }
-    .logoLink {
-        position: initial;
-    }
-    .logo {
-        display: block;
-        margin: 0 auto 20px auto;
-        max-width: 100%;
-        padding: 0 15px;
-    }
-    .title {
-        margin: 10px 0 25px 0;
-    }
+
     .menu {
         position: static;
     }

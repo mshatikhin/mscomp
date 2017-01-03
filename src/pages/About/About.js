@@ -43,11 +43,18 @@ export default class About extends Component {
                     <div className={styles.contacts}>
                         Если желаете со мной поработать, сообщите мне:
                         <ul className={styles.contactList}>
-                            <li>vk: <a href="//vk.me/id2069565">Mikhail Shatikhin</a></li>
-                            <li>fb: <a href="//facebook.com/mshatikhin">Mikhail Shatikhin</a></li>
-                            <li>ins: <a href="//instagram.com/mshatikhin.photo">Mikhail Shatikhin</a></li>
-                            <li>gm: <a href="mailto:mshatikhin@gmail.com">mshatikhin@gmail.com</a></li>
-                            <li>ph: +7(912)043-98-27</li>
+                            <li>
+                                <a href="//vk.me/id2069565">
+                                    <img src={require("./images/vk.png")}/>
+                                    <span className={styles.contactListText}>Mikhail Shatikhin</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:+7(912)043-98-27">
+                                    <img src={require("./images/phone.png")}/>
+                                    <span className={styles.contactListText}>+7 (912) 043-98-27</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

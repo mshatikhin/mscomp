@@ -6,9 +6,29 @@
 }
 
 .contactList {
-    margin: 0;
-    padding: 10px 0 0 0;
+    margin: 20px 0 0 0;
+    padding: 0;
     list-style: none;
+}
+
+.contactList li {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 25px;
+    padding: 5px 0;
+}
+
+.contactListText {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.contactList img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
 }
 
 .contacts {

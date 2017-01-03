@@ -6,9 +6,11 @@
 
 .link {
     font-size: 14px;
-    color: #777;
     margin-right: 20px;
     transition: .2s color ease-out;
+    color: #aaa;
+    font-weight: 100;
+    padding-bottom: 5px;
 }
 
 .link:last-child {
@@ -20,6 +22,11 @@
     box-shadow: 0 1px 0 red;
 }
 
+.link:hover {
+    color: #000;
+}
+
+
 @media screen and (max-width: 950px) {
     .wrap {
         text-align: center;
@@ -30,6 +37,7 @@
     .wrap {
         text-align: center;
     }
+
     .link {
         display: block;
         width: 100%;
@@ -39,7 +47,19 @@
         font-weight: 300;
         margin-bottom: 1px;
     }
+
+    .activeLink {
+        border: none;
+        box-shadow: none;
+        background: rgba(255, 0, 0, 0.27);
+        color: #fff;
+    }
+
     .link:hover {
         color: #000;
+    }
+
+    .activeLink:hover {
+        color: #fff;
     }
 }

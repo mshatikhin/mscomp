@@ -16,7 +16,10 @@ var plugins = [
     new Clean(["AppBuild/app"]),
     new webpack.DefinePlugin({
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        PRODUCTION: JSON.stringify(true)
+        PRODUCTION: JSON.stringify(true),
+        'process.env': {
+            NODE_ENV: JSON.stringify('production')
+        }
     }),
     new webpack.optimize.DedupePlugin(),
     new ExtractTextPlugin("assets/[name].[contenthash].css", {
@@ -32,6 +35,9 @@ var plugins = [
         filename: "../index.html",
         template: "src/static/TemplateIndex.html",
         inject: "body"
+    }),
+    new webpack.ProvidePlugin({
+        'React': 'react'
     })
 ];
 
@@ -78,10 +84,6 @@ var config = {
     },
     postcss: function () {
         return [autoprefixer, precss];
-    },
-    externals: {
-        "react": "React",
-        "react-dom": "ReactDOM"
     },
     plugins: plugins
 };
