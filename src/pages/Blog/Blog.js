@@ -7,9 +7,9 @@ import {blogRequest} from "../../redux/actions/blogActions";
 import Loader from "../../components/Loader";
 import {WP_SITE} from "../../utils/util";
 
-const randomProperty = (obj) => {
+const firstProperty = (obj) => {
     const keys = Object.keys(obj);
-    return obj[keys[keys.length * Math.random() << 0]];
+    return obj[keys[0]];
 };
 
 const propTypes = {
@@ -46,7 +46,7 @@ class BlogContainer extends Component {
                     <div className={styles.card}>
                         <a href={`/blog/${p.ID}`} className={styles.link}>
                             {p.attachment_count > 0 && <div className={styles.cardImage}>
-                                <img src={randomProperty(p.attachments).thumbnails.medium}
+                                <img src={firstProperty(p.attachments).thumbnails.medium}
                                      className={styles.img}
                                      width={300}
                                 />
