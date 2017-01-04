@@ -23,12 +23,22 @@
     vertical-align: middle;
 }
 
+.contactList a {
+    display: inline-block;
+}
+
+.contactList a:hover img{
+    opacity: 1;
+}
+
 .contactList img {
     display: inline-block;
     vertical-align: middle;
+    opacity: .8;
     width: 32px;
     height: 32px;
     margin-right: 10px;
+    transition: .3s all ease;
 }
 
 .contacts {
