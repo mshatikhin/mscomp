@@ -1,0 +1,9 @@
+.root {
+    overflow: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.root > * {
+    display: inline-block;
+}

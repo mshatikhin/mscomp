@@ -1,2 +1,1 @@
-import Loader from "./Loader";
-module.exports = Loader;
+export { default } from  "./Loader";
