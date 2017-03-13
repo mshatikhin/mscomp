@@ -10,7 +10,7 @@ module.exports = {
         main: "./app/AppStart.js"
     },
     output: {
-        publicPath: "/AppBuild/app/",
+        publicPath: "/app/",
         path: path.join(__dirname, "AppBuild", "app"),
         filename: "assets/[name].[hash].js",
         chunkFilename: "assets/[id].[hash].js"

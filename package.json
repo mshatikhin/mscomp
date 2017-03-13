@@ -61,10 +61,7 @@
     "url": "https://github.com/mshatikhin/mscomp.git"
   },
   "scripts": {
-    "build": "webpack -p --progress --colors --config webpack.production.config.js",
-    "build_dev": "webpack --progress --colors --watch",
-    "build:prod": "set NODE_ENV='production' && npm run build",
-    "dev": "set NODE_ENV='development' && npm run build_dev",
+    "build:prod": "NODE_ENV=production webpack -p --progress --colors --config webpack.production.config.js",
     "test": "jest",
     "start": "webpack-dev-server -d --progress --colors"
   },

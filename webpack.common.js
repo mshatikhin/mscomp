@@ -6,7 +6,7 @@ const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 
 const path = require("path");
 const sourceFiles = path.join(__dirname, "src");
-
+console.log("process.env.NODE_ENV", process.env.NODE_ENV);
 const isProduction = process.env.NODE_ENV == "production";
 
 console.log("\n****************************************************\n");
@@ -76,7 +76,7 @@ let plugins = [
 
 if (isProduction) {
     plugins.push(new HtmlWebpackPlugin({
-        filename: "./index.html",
+        filename: "../index.html",
         template: path.join(__dirname, "src/static/TemplateIndex.html"),
         inject: "body",
         title: "Сайт портфолио Михаила Шатихина"
