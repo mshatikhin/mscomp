@@ -1,12 +1,12 @@
 ﻿// @flow
 
-import React, {PropTypes, Component} from "react";
+import React, { PropTypes, Component } from "react";
 import styles from "./Portfolio.css";
-import {connect} from "react-redux";
-import {browserHistory, withRouter} from "react-router";
+import { connect } from "react-redux";
+import { browserHistory, withRouter } from "react-router";
 import Loader from "../../components/Loader";
-import {albumsRequest} from "../../redux/actions/albumsActions";
-import {FLICKR_USER_ID, FLICKR_API_KEY} from "../../utils/util";
+import { albumsRequest } from "../../redux/actions/albumsActions";
+import { FLICKR_USER_ID, FLICKR_API_KEY } from "../../utils/util";
 
 const propTypes = {
     dispatch: PropTypes.func.isRequired,
@@ -32,7 +32,9 @@ class PortfolioContainer extends Component {
                         key={album.id}
                         className={styles.card}
                         title="Перейти в альбом"
-                        onClick={() => { browserHistory.push("/photos/" + album.id) } }>
+                        onClick={() => {
+                            browserHistory.push("/photos/" + album.id)
+                        } }>
                         <div className={styles.meta}>
                             <header className={styles.header}>{album.title._content}</header>
                             <span className={styles.countPhotos}>{album.photos} photos</span>
@@ -51,7 +53,7 @@ class PortfolioContainer extends Component {
 PortfolioContainer.propTypes = propTypes;
 
 const mapStateToProps = (props) => {
-    const {albums} = props.portfolio;
-    return {albums};
+    const { albums } = props.portfolio;
+    return { albums };
 };
 export default withRouter(connect(mapStateToProps)(PortfolioContainer));

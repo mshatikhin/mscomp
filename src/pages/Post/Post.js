@@ -6,7 +6,7 @@ import { Link, withRouter } from "react-router";
 import { connect } from "react-redux";
 import { postRequest } from '../../redux/actions/postActions';
 import Loader from "../../components/Loader";
-import {WP_SITE} from "../../utils/util";
+import { WP_SITE } from "../../utils/util";
 
 const propTypes = {
     dispatch: PropTypes.func.isRequired,
@@ -20,7 +20,7 @@ class PostContainer extends Component {
         super(props);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.dispatch(postRequest(WP_SITE, this.props.id));
     }
 

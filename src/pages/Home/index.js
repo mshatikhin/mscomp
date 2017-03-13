@@ -1,2 +1,1 @@
-import Home from "./Home.js";
-module.exports = Home;
+export { default } from "./Home.js";

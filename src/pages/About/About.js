@@ -1,6 +1,6 @@
 // @flow
 
-import React, {Component} from "react";
+import React, { Component } from "react";
 import styles from "./About.css";
 
 export default class About extends Component {
@@ -17,7 +17,8 @@ export default class About extends Component {
                     </div>
                     <article>
                         <p>
-                            Привет, меня зовут Михаил, по профессии я программист, в основном занимаюсь frontend разработкой в
+                            Привет, меня зовут Михаил, по профессии я программист, в основном занимаюсь frontend
+                            разработкой в
                             компании СКБ&nbsp;Контур. Пишу различные веб-приложения и сайты.
                         </p>
                         <p>

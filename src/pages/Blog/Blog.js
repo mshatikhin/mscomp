@@ -1,11 +1,11 @@
 // @flow
 
-import React, {Component, PropTypes} from "react";
+import React, { Component, PropTypes } from "react";
 import styles from "./Blog.css";
-import {connect} from "react-redux";
-import {blogRequest} from "../../redux/actions/blogActions";
+import { connect } from "react-redux";
+import { blogRequest } from "../../redux/actions/blogActions";
 import Loader from "../../components/Loader";
-import {WP_SITE} from "../../utils/util";
+import { WP_SITE } from "../../utils/util";
 
 const firstProperty = (obj) => {
     const keys = Object.keys(obj);
@@ -28,7 +28,7 @@ class BlogContainer extends Component {
     }
 
     createMarkup(content) {
-        return {__html: content};
+        return { __html: content };
     };
 
     render() {
@@ -67,7 +67,7 @@ class BlogContainer extends Component {
 BlogContainer.propTypes = propTypes;
 
 const mapStateToProps = (props) => {
-    const {posts} = props.blog;
-    return {posts};
+    const { posts } = props.blog;
+    return { posts };
 };
 export default connect(mapStateToProps)(BlogContainer);

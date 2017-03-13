@@ -1,12 +1,12 @@
 ﻿// @flow
 
-import React, {PropTypes, Component} from "react";
+import React, { PropTypes, Component } from "react";
 import styles from "./Photos.css";
-import {connect} from "react-redux";
-import {Link, withRouter} from "react-router";
+import { connect } from "react-redux";
+import { Link, withRouter } from "react-router";
 import Loader from "../../components/Loader";
-import {photosRequest, updatePhotos} from "../../redux/actions/photosActions";
-import {FLICKR_USER_ID, FLICKR_API_KEY} from "../../utils/util";
+import { photosRequest, updatePhotos } from "../../redux/actions/photosActions";
+import { FLICKR_USER_ID, FLICKR_API_KEY } from "../../utils/util";
 
 const propTypes = {
     dispatch: PropTypes.func.isRequired,
@@ -53,8 +53,8 @@ class PhotosContainer extends Component {
 PhotosContainer.propTypes = propTypes;
 
 const mapStateToProps = (props, ownProps) => {
-    const {id} = ownProps.params;
-    const {photos} = props.photos;
-    return {photos, id};
+    const { id } = ownProps.params;
+    const { photos } = props.photos;
+    return { photos, id };
 };
 export default withRouter(connect(mapStateToProps)(PhotosContainer));

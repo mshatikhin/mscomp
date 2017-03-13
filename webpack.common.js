@@ -69,8 +69,7 @@ let plugins = [
             const userRequest = module.userRequest;
             // module.userRequest returns name of file, including path
             let inNodeModules = userRequest && userRequest.match(/.js$/) && userRequest.indexOf("node_modules") >= 0;
-            let inRetailUI = userRequest && userRequest.indexOf("retail-ui") >= 0;
-            return inNodeModules || inRetailUI;
+            return inNodeModules;
         }
     })
 ];
