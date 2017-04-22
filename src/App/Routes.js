@@ -3,9 +3,7 @@ import { Route, IndexRedirect } from "react-router";
 import Layout from "../components/Layout/Layout";
 import Portfolio from "../pages/Portfolio/Portfolio";
 import Photos from "../pages/Photos/Photos";
-import Blog from "../pages/Blog";
 import Home from "../pages/Home";
-import Post from "../pages/Post/Post";
 import NotFound from "../components/NotFound/NotFound";
 import About from "../pages/About/About";
 
@@ -17,8 +15,6 @@ export default function routes(storeRef) {
     return (
         <Route path="/" component={ Layout }>
             <IndexRedirect to="home"/>
-            <Route path="blog" component={ Blog }/>
-            <Route path="blog/:id" component={ Post }/>
             <Route path="home" component={ Home }/>
             <Route path="about" component={ About }/>
             <Route path="photos" component={ Portfolio }/>
